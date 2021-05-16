@@ -1,6 +1,27 @@
 .body{
     padding: 1%;
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.footer{
+    background-color: black;
+    color: white;
+    padding: 5%;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+.footer a:hover{
+    color: grey;
 }
 
 .logo{
@@ -14,8 +35,10 @@
   }
 .headmenu{
     padding: 5%;
-    display: flex;
+    position: relative;
+    top: 0;
     background-color: white;
+
 }
 .headmenu a{
     text-decoration: none;
@@ -60,6 +83,17 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+
+  #contato{
+      text-align: center;
+  }
+  #contato a{
+      text-decoration: none;
+      color: black;
+  }
+  #contato a:hover{
+      color: blue;
   }
   
   @media screen and (max-height: 450px) {
@@ -123,7 +157,7 @@
 
   @media only screen and (orientation: landscape) {
     body {
-      background-color: lightblue;
+      background-color: white;
     }
     .mobile{
         display: none;
@@ -134,7 +168,7 @@
   }
   @media only screen and (orientation: portrait) {
     body {
-      background-color: rgb(193, 223, 233);
+      background-color:white;
     }
     .mobile{
         display: block;
