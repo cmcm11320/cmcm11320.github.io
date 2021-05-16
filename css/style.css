@@ -1,13 +1,29 @@
 .body{
     padding: 1%;
+    text-decoration: none;
 }
 
+.logo{
+    text-align: center;
+    padding: 1%;
+    cursor: pointer;
+}
 .coluna {
     padding: 20px;
     color: white;
   }
 .headmenu{
-    padding: 1%;
+    padding: 5%;
+    display: flex;
+    background-color: white;
+}
+.headmenu a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.headmenu a:hover{
+    color: blue;
 }
 .navbar {
     height: 100%;
