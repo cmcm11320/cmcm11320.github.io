@@ -1,0 +1,131 @@
+.body{
+    padding: 1%;
+}
+
+.coluna {
+    padding: 20px;
+    color: white;
+  }
+.headmenu{
+    padding: 1%;
+}
+.navbar{
+    padding:1%;
+}
+.navbar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+  }
+  
+  .navbar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  
+  }
+  
+  .navbar a:hover{
+    color: #f1f1f1;
+  }
+  
+  .navbar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .navbar {padding-top: 15px;}
+    .navbar a {font-size: 18px;}
+  }
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .coluna {background: red;}
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .coluna {background: green;}
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .coluna {background: blue;}
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .coluna {background: orange;}
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .coluna {background: pink;}
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+  }
+
+  @media only screen and (orientation: landscape) {
+    body {
+      background-color: lightblue;
+    }
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+  }
+  @media only screen and (orientation: portrait) {
+    body {
+      background-color: rgb(193, 223, 233);
+    }
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+  }
