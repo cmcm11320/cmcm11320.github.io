@@ -59,7 +59,7 @@
     })
 
     anime({
-      targets: '.hero-figure-box-01, .hero-figure-box-02, .hero-figure-box-03, .hero-figure-box-04, .hero-figure-box-08, .hero-figure-box-09, .hero-figure-box-10',
+      targets: '.hero-figure-box-01, .hero-figure-box-02, .hero-figure-box-03, .hero-figure-box-04, .hero-figure-box-08, .hero-figure-box-09, ',
       duration: anime.random(600, 800),
       delay: anime.random(600, 800),
       rotate: [ anime.random(-360, 360), function (el) { return el.getAttribute('data-rotation') } ],
