@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        #botao{
+            background-color:#5DC3D0;
+        }
+        #botao:hover{
+            background-color:#393939;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media only screen and (max-width: 768px){
+            /*mobile*/
+            .but{
+               width:100% !important; 
+            }
+            #resultado{
+                margin-left:0 !important;
+            }
+        }
+        @media only screen and (min-width: 768px){
+            /*desktop*/
+            .but{
+               width:25% !important; 
+            }
+        }
+        
+    </style>
+    <div class="col-lg-12" >
+        <table style="width:100%">
+            <tr>
+                <td>Valor do salário base:</td>
+                <td><input type="number" min="0.00" max="10000.00" step="0.01" placeholder="R$0.00" pattern="[0-9]{5}.[0-9]{2}" id="salario"/></td>
+            </tr>
+            <tr>
+                <td>Média de hora extra:</td>
+                <td><input type="number" min="0.00" max="10000.00" step="0.01" placeholder="R$0.00" pattern="[0-9]{5}.[0-9]{2}" id="horaextra"/></td>
+            </tr>
+            <tr>
+                <td>Abono Pecuniário:</td>
+                <td>
+                    <select id="abono" name="abonolist">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Dias de férias usufruídas:</td>
+                <td><input type="number" id="feriasusufruidas"/></td>
+            </tr>
+            <tr>
+                <td>Número de Pendentes:</td>
+                <td><input type="number" id="dependentes"/></td>
+            </tr>
+            <tr>
+                <td>Adiantar primeira parcela do 13º:</td>
+                <td>
+                    <select id="adiantamento" name="adiantamentolist">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align:center;">
+            <button class="but" id="botao">Calcular </button>
+        </div>
+        
+        <div id="resanchor" style="padding:3%"></div>
+        <div id="resultado" style="display:none;margin-left:20%;">
+            <div class="col-md-8" >
+			 <br><br>
+            <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+              <thead>
+                <tr>
+                  <th colspan="2">Cálculo de Férias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-md-6">Salário Base</td>
+                  <td id="salbase" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">Média de hora extra</td>
+                  <td id="mediahoraextra" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td>Abono pecuniário</td>
+                  <td id="abonopecuniario">
+                                      </td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">Dias de férias usufruídas</td>
+                  <td id="diasdeferiasusufruidos" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">Número de pendentes</td>
+                  <td id="numerodependentes" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td>Adiantar primeira parcela do 13º</td>
+                  <td id="adiantarprimeiraparcela13">
+                                      </td>
+                </tr>
+              </tbody>
+            </table>
+
+              <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                <thead>
+                  <tr>
+                    <th class="col-md-6" colspan="1">Evento</th>
+                    <th class="col-md-3" colspan="1">Provento</th>
+                    <th class="col-md-3" colspan="1">Desconto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Salário das Férias</td>
+                    <td id="salferias"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Adicional de Férias (1/3)</td>
+                    <td id="adicionalferias"></td>
+                    <td></td>
+                  </tr>
+                                      <tr>
+                      <td>Abono pecuniário</td>
+                      <td id="abonopecuniario"></td>
+                      <td></td>
+                    </tr>
+                                                        <tr>
+                      <td>Adicional de abono pecuniário</td>
+                      <td id="adicionaldeabonopecuniario"></td>
+                      <td></td>
+                    </tr>
+                                    <tr>
+                    <td>Desconto do INSS (8,0%)</td>
+                    <td></td>
+                    <td id="descontoinss"></td>
+                  </tr>
+                  <tr>
+                    <td>Desconto do IRFF (0,0%)</td>
+                    <td></td>
+                    <td id="descontoirff"></td>
+                  </tr>
+                                      <tr>
+                      <td>Parcela adiantada do 13º</td>
+                      <td id="parcelaadiantada13"></td>
+                      <td></td>
+                    </tr>
+                    <tr class="">
+                    <td>Total</td>
+                    <td id="totalprovento"></td>
+                    <td id="totaldesconto"></td>
+                  </tr>
+                  <tr class="">
+                    <td>Resultado Final</td>
+                    <td id="resfinal" colspan="1"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+          </div>
+        </div>
+    </div>
+    
+  <script>
+    document.querySelector('#botao').addEventListener('click', function () {
+        
+        
+
+        var salario = document.querySelector('#salario').value;
+        var hora = document.querySelector('#horaextra').value;
+        var abono = document.querySelector('#abono').value;
+        var ferias = document.querySelector('#feriasusufruidas').value;
+        var dependentes = document.querySelector('#dependentes').value;
+        var adiantamento = document.querySelector('#adiantamento').value;
+
+        //   calculo do resultado do salario de ferias
+      
+        var resferias = (salario) / 3;
+        var salferias = salario + hora;
+
+        //   função valor abono
+        if(abono == 'sim'){
+            var valabono = (resferias) / 3;
+        }
+        else{
+            var valabono = 0;
+        }
+        document.getElementById("resanchor").scrollIntoView();
+        document.getElementById("resultado").style.display = "block";
+        
+        
+        document.getElementById("salbase").innerHTML = salario;
+        document.getElementById("mediahoraextra").innerHTML = hora;
+        document.getElementById("abonopecuniario").innerHTML = valabono;
+        document.getElementById("diasdeferiasusufruidos").innerHTML = ferias;
+        document.getElementById("numerodependentes").innerHTML = dependentes;
+        document.getElementById("adiantarprimeiraparcela13").innerHTML = salario;
+        document.getElementById("salferias").innerHTML = salario;
+        document.getElementById("adicionalferias").innerHTML = salario;
+        document.getElementById("abonopecuniario").innerHTML = salario;
+        document.getElementById("adicionaldeabonopecuniario").innerHTML = salario;
+        document.getElementById("descontoinss").innerHTML = salario;
+        document.getElementById("descontoirff").innerHTML = salario;
+        document.getElementById("parcelaadiantada13").innerHTML = salario;
+        document.getElementById("totalprovento").innerHTML = salario;
+        document.getElementById("totaldesconto").innerHTML = salario;
+        document.getElementById("resfinal").innerHTML = salario;
+
+    });
+
+  </script>
+</body>
+</html>

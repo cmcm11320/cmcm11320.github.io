@@ -9,3 +9,81 @@
 .body a{
     text-decoration: none !important;
 }
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+  }
+  .modal:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal > div {
+    width: 60%;
+    position: relative;
+    margin: 0% auto;
+    padding: 15px 20px;
+    background: #fff;
+  }
+  .fechar {
+    position: absolute;
+    width: 30px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    background: #ff4545;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #8d0000;
+  }
+  
+#botao{
+    background-color:#5DC3D0;
+}
+#botao:hover{
+    background-color:#393939;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 768px){
+    /*mobile*/
+    .but{
+       width:100% !important; 
+    }
+    #resultado{
+        margin-left:0 !important;
+    }
+}
+@media only screen and (min-width: 768px){
+    /*desktop*/
+    .but{
+       width:25% !important; 
+    }
+}
+
+.but_more{
+    background-color:#5DC3D0;
+    color:black;
+    padding: 5%;
+    border-radius: 10px;
+    text-decoration: none !important;
+
+}
+
+.but_more:hover{
+    background-color:#393939;
+    color: white;
+}

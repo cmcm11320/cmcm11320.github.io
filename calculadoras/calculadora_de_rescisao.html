@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        #botao{
+            background-color:#5DC3D0;
+        }
+        #botao:hover{
+            background-color:#393939;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media only screen and (max-width: 768px){
+            /*mobile*/
+            .but{
+               width:100% !important; 
+            }
+            #resultado{
+                margin-left:0 !important;
+            }
+        }
+        @media only screen and (min-width: 768px){
+            /*desktop*/
+            .but{
+               width:25% !important; 
+            }
+        }
+    </style>
+    <div class="col-lg-12" >
+        <table style="width:100%">
+            <tr>
+                <td>Data da Admissão</td>
+                <td><input type="date" id="admissao"/></td>
+            </tr>
+            <tr>
+                <td>Data da Rescisão</td>
+                <td><input type="date" id="rescisao"/></td>
+            </tr>
+            <tr>
+                <td>Motivo da Rescisão:</td>
+                <td>
+                    <select id="motivo" name="motivolist">
+                        <option value="sim">Dispensa sem justa causa</option>
+                        <option value="nao">Dispensa por Justa Causa</option>
+                        <option value="nao">Pedido de demissão</option>
+                        <option value="nao">Término do contrato de experiência</option>
+                        <option value="nao">Rescisão antecipada de contrato de experiência pelo Empregador</option>
+                        <option value="nao">Rescisão antecipada de contrato de experiência pelo Empregado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Data do fim do contrato:</td>
+                <td><input type="date" id="fimcontrato"/></td>
+            </tr>
+            <tr>
+                <td>Último salário:</td>
+                <td><input type="number" id="salario"/></td>
+            </tr>
+            <tr>
+                <td>Tipo de Aviso Prévio:</td>
+                <td>
+                    <select id="aviso" name="avisolist">
+                        <option value="trabalhado">Trabalhado</option>
+                        <option value="indenizado">Indenizado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Possui férias vencidas:</td>
+                <td>
+                    <select id="ferias" name="feriaslist">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Filhos com menos de 14 anos ou com invalidez:</td>
+                <td><input type="number" id="dependentes"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;">
+            <button class="but" id="botao">Calcular </button>
+        </div>
+        
+        <div id="resanchor" style="padding:3%"></div>
+        <div id="resultado" style="display:none;margin-left:20%;">
+            <div class="col-md-8" >
+			 <br><br>
+            <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+              <thead>
+                <tr>
+                  <th class="col-md-6" colspan="1">Proventos</th>
+                  <th class="col-md-6" colspan="1">Valores</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-md-6">Aviso prévio indenizado</td>
+                  <td id="avisoindenizado" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">Rescisão antecipada de contrato de experiência (art. 479 CLT)</td>
+                  <td id="rescisaoantecipada" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td>Salário família</td>
+                  <td id="salfam">
+                                      </td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">13º salário Proporcional</td>
+                  <td id="13salprop" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td class="col-md-6">13º salário indenizado</td>
+                  <td id="13salind" class="col-md-6"></td>
+                </tr>
+                <tr>
+                  <td>Férias vencidas</td>
+                  <td id="feriasvencidas">
+                                      </td>
+                </tr>
+                <tr>
+                  <td>1/3 sobre férias vencidas</td>
+                  <td id="tercoferiasvencidas">
+                                      </td>
+                </tr>
+                <tr>
+                  <td>Férias proporcionais</td>
+                  <td id="feriasprop">
+                                      </td>
+                </tr>
+                <tr>
+                  <td>1/3 Sobre férias proporcionais</td>
+                  <td id="tercoferiasprop">
+                                      </td>
+                </tr>
+                <tr>
+                  <td>Férias indenizadas</td>
+                  <td id="feriasind">
+                                      </td>
+                </tr>
+                <tr>
+                  <td>1/3 Sobre férias indenizadas</td>
+                  <td id="tercoferiasind">
+                                      </td>
+                </tr>
+                <tr>
+                  <th>TOTAL DE VENCIMENTOS</td>
+                  <td id="totalvenc">
+                                      </td>
+                </tr>
+              </tbody>
+            </table>
+
+              <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                <thead>
+                  <tr>
+                    <th class="col-md-6" colspan="1">Descontos</th>
+                    <th class="col-md-6" colspan="1">Valores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>INSS</td>
+                    <td id="inss"></td>
+                    
+                  </tr>
+                  <tr>
+                    <td>IRRF</td>
+                    <td id="irrf"></td>
+                    
+                  </tr>
+                    <tr>
+                        <td>INSS sobre 13º salário</td>
+                        <td id="insssob13"></td>
+                    </tr>
+                    <tr>
+                        <td>IRRF sobre 13º salário</td>
+                        <td id="irrfsob13"></td>
+                    </tr>
+                    <tr>
+                        <td>Aviso prévio</td>
+                        <td id="avisoprevio"></td>
+                    </tr>
+                    <tr>
+                        <td>Rescisão antecipada de contrato de experiência (art. 479 CLT)</td>
+                        <td id="resantcontrato"></td>
+                    </tr>
+                    <tr>
+                        <th>TOTAL DE DESCONTOS</th>
+                        <td id="totaldesc"></td>
+                    </tr>
+                    <tr>
+                        <th>LÍQUIDO RESCISÃO</th>
+                        <td id="liquidores"></td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+
+          </div>
+        </div>
+    </div>
+    
+  <script>
+    document.querySelector('#botao').addEventListener('click', function () {
+        
+        
+
+        var dataad = document.querySelector('#admissao').value;
+        var datares = document.querySelector('#rescisao').value;
+        var motivo = document.querySelector('#motivo').value;
+        var datafinal = document.querySelector('#fimcontrato').value;
+        var salario = document.querySelector('#salario').value;
+        var aviso = document.querySelector('#aviso').value;
+        var ferias = document.querySelector('#ferias').value;
+        var dependentes = document.querySelector('#dependentes').value;
+
+ 
+        document.getElementById("resanchor").scrollIntoView();
+        document.getElementById("resultado").style.display = "block";
+        
+        
+        document.getElementById("avisoindenizado").innerHTML = salario;
+        document.getElementById("rescisaoantecipada").innerHTML = salario;
+        document.getElementById("salfam").innerHTML = salario;
+        document.getElementById("13salprop").innerHTML = salario;
+        document.getElementById("13salind").innerHTML = salario;
+        document.getElementById("feriasvencidas").innerHTML = salario;
+        document.getElementById("tercoferiasvencidas").innerHTML = salario;
+        document.getElementById("feriasprop").innerHTML = salario;
+        document.getElementById("tercoferiasprop").innerHTML = salario;
+        document.getElementById("feriasind").innerHTML = salario;
+        document.getElementById("tercoferiasind").innerHTML = salario;
+        document.getElementById("totalvenc").innerHTML = salario;
+        document.getElementById("inss").innerHTML = salario;
+        document.getElementById("irrf").innerHTML = salario;
+        document.getElementById("insssob13").innerHTML = salario;
+        document.getElementById("irrfsob13").innerHTML = salario;
+        document.getElementById("avisoprevio").innerHTML = salario;
+        document.getElementById("resantcontrato").innerHTML = salario;
+        document.getElementById("totaldesc").innerHTML = salario;
+        document.getElementById("liquidores").innerHTML = salario;
+
+    });
+
+  </script>
+</body>
+</html>

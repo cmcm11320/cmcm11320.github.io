@@ -16,8 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Martins Dev</title>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/style.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+    
     <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <link rel="stylesheet" href="src/owlcarousel/dist/assets/owl.carousel.min.css">
@@ -91,8 +92,7 @@
                                         <i class="fab fa-wordpress"></i>
                                     </div>
                                     <h4 class="feature-title mt-24">Escolha sua plataforma</h4>
-                                    <p class="text-sm mb-0">Sites em Wordpress, Laravel ou Html puro, como for do seu
-                                        interesse</p>
+                                    <p class="text-sm mb-0">Sites em Wordpress, Laravel ou Html puro para o seu negócio bombar na internet                                       interesse</p>
                                 </div>
                             </div>
                             <div class="feature text-center is-revealing">
@@ -121,7 +121,7 @@
                                         <i class="fab fa-google"></i>
                                     </div>
                                     <h4 class="feature-title mt-24">Compatível com Ferramentas da Google</h4>
-                                    <p class="text-sm mb-0">Adicione seu site a Google Analytics e Goodle Ads para
+                                    <p class="text-sm mb-0">Compatível com Google Analytics e Goodle Ads para
                                         tornar seu site ainda mais moderno.</p>
                                 </div>
                             </div>
@@ -145,9 +145,7 @@
                     <div class="pricing-inner section-inner" style="text-align: center;">
                         <div id="portfolio" class="pricing-header text-center">
                             <h2 class="section-title mt-0">Portfólio</h2>
-                            <p class="section-paragraph mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ad quis nostrud.
-                            </p>
+                            <p class="section-paragraph mb-0">Veja alguns dos meus projetos mais recentes                            </p>
                         </div>
                         <div class="owl-carousel">
                             <div style="text-decoration: none;"> <img src="src/images/Mockup_CoreFusion_1.png">
@@ -192,6 +190,47 @@
                 </div>
             </section>
 
+            <section class="pricing section">
+                <div class="container-sm">
+                    <div class="pricing-inner section-inner" style="text-align: center;">
+                        <div id="portfolio" class="pricing-header text-center">
+                            <h2 class="section-title mt-0">Projetos e Backend</h2>
+                            <p class="section-paragraph mb-0">Conheça mais projetos em python, javascript, PHP, entre outros
+                            </p>
+                        </div>
+                        <div class="owl-carousel" style="text-align: -webkit-center;">
+                            <div>
+                                <h3>Calculadora de Férias</h3>
+                                <p>Aprenda a calcular suas férias</p>
+                                <a class="but_more" href="https://reconectabr.com.br/calculadora-de-ferias/">Quero saber mais</a>
+                                <div style="padding: 2%;">
+
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Calculadora de Rescisão</h3>
+                                <p>Aprenda a calcular a Rescisão do seu contrato</p>
+                                <a class="but_more" href="https://reconectabr.com.br/calculadora-de-rescisao/">Quero saber mais</a>
+                                <div style="padding: 2%;">
+
+                                </div>
+                            </div>
+                            <div>
+                                <h3>IA usando Python</h3>
+                                <p>Criação de Inteligência Artificial resolvedora do dilema do Trem</p>
+                                <a class="but_more" href="#embreve_modal">Quero saber mais</a>
+                                <div style="padding: 2%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+            </section>
+
             <section class="cta section">
                 <div id="contato" class="container">
                     <div class="cta-inner section-inner">
@@ -204,6 +243,348 @@
                     </div>
                 </div>
             </section>
+            <div class="modal" id="modal_ferias">
+                <a href="#fechar" title="Fechar" class="fechar">x</a>
+                <div class="col-lg-12" >
+                    <table style="width:100%">
+                        <tr>
+                            <td>Valor do salário base:</td>
+                            <td><input type="number" placeholder="R$0.00" id="salario_base"/></td>
+                        </tr>
+                        <tr>
+                            <td>Média de hora extra:</td>
+                            <td><input type="number" placeholder="R$0.00" id="hora_extra"/></td>
+                        </tr>
+                        <tr>
+                            <td>Abono Pecuniário:</td>
+                            <td>
+                                <select id="abono">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dias de férias usufruídas:</td>
+                            <td><input type="number" id="ferias_usufruidas"/></td>
+                        </tr>
+                        <tr>
+                            <td>Número de Pendentes:</td>
+                            <td><input type="number" id="pendentes"/></td>
+                        </tr>
+                        <tr>
+                            <td>Adiantar primeira parcela do 13º:</td>
+                            <td>
+                                <select id="adiantamento">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center;">
+                        <button class="but" id="botao_ferias">Calcular </button>
+                    </div>
+                    
+                    <div id="resanchor_ferias" style="padding:3%"></div>
+                    <div id="resultado_ferias" style="display:none;margin-left:20%;">
+                        <div class="col-md-8" >
+                         <br><br>
+                        <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                          <thead>
+                            <tr>
+                              <th colspan="2">Cálculo de Férias</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-md-6">Salário Base</td>
+                              <td id="output_salario_base" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">Média de hora extra</td>
+                              <td id="output_hora_extra" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Abono pecuniário</td>
+                              <td id="output_abono_pecuniario">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">Dias de férias usufruídas</td>
+                              <td id="output_dias_usufruidos" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">Número de pendentes</td>
+                              <td id="output_numero_pendentes" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Adiantar primeira parcela do 13º</td>
+                              <td id="output_adiantar_parcela">
+                                                  </td>
+                            </tr>
+                          </tbody>
+                        </table>
+            
+                          <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                            <thead>
+                              <tr>
+                                <th class="col-md-6" colspan="1">Evento</th>
+                                <th class="col-md-3" colspan="1">Provento</th>
+                                <th class="col-md-3" colspan="1">Desconto</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Salário das Férias</td>
+                                <td id="output_salario_ferias"></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Adicional de Férias (1/3)</td>
+                                <td id="output_adicional_ferias"></td>
+                                <td></td>
+                              </tr>
+                                                  <tr>
+                                  <td>Abono pecuniário</td>
+                                  <td id="output_abono_pec"></td>
+                                  <td></td>
+                                </tr>
+                                                                    <tr>
+                                  <td>Adicional de abono pecuniário</td>
+                                  <td id="output_adicional_abono"></td>
+                                  <td></td>
+                                </tr>
+                                                <tr>
+                                <td>Desconto do INSS (<span id="output_percentual_inss"></span>%)</td>
+                                <td></td>
+                                <td id="output_desconto_inss"></td>
+                              </tr>
+                              <tr>
+                                <td>Desconto do IRFF (<span id="output_percentual_irff"></span>%)</td>
+                                <td></td>
+                                <td id="output_desconto_irff"></td>
+                              </tr>
+                                                  <tr>
+                                  <td>Parcela adiantada do 13º</td>
+                                  <td id="output_parcela_adiantada"></td>
+                                  <td></td>
+                                </tr>
+                                <tr class="">
+                                <td>Total</td>
+                                <td id="output_total_provento"></td>
+                                <td id="output_total_desconto"></td>
+                              </tr>
+                              <tr class="">
+                                <td>Resultado Final</td>
+                                <td id="output_resultado_final" colspan="1"></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+            
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="modal_rescisao">
+                <a href="#fechar" title="Fechar" class="fechar">x</a>
+                <div class="col-lg-12" >
+                    <table style="width:100%">
+                        <tr>
+                            <td>Data da Admissão</td>
+                            <td><input type="date" id="input_admissao"/></td>
+                        </tr>
+                        <tr>
+                            <td>Data da Rescisão</td>
+                            <td><input type="date" id="input_rescisao"/></td>
+                        </tr>
+                        <tr>
+                            <td>Motivo da Rescisão:</td>
+                            <td>
+                                <select onchange="showoptionsmotivo(this);" id="input_motivo" >
+                                    <option value= 0 >Dispensa sem justa causa</option>
+                                    <option value= 1 >Dispensa por Justa Causa</option>
+                                    <option value= 2 >Pedido de demissão</option>
+                                    <option value= 3 >Término do contrato de experiência</option>
+                                    <option value= 4 >Rescisão antecipada de contrato de experiência pelo Empregador</option>
+                                    <option value= 5 >Rescisão antecipada de contrato de experiência pelo Empregado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr style="visibility: collapse;" id="fimcontrato">
+                            <td>Data do fim do contrato:</td>
+                            <td><input type="date" id="input_fim_contrato"/></td>
+                        </tr>
+                        <tr>
+                            <td>Último salário:</td>
+                            <td><input type="number" id="input_salario"/></td>
+                        </tr>
+                        <tr>
+                            <td>Tipo de Aviso Prévio:</td>
+                            <td>
+                                <select id="input_aviso" >
+                                    <option value="Trabalhado">Trabalhado</option>
+                                    <option value="Indenizado">Indenizado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Possui férias vencidas:</td>
+                            <td>
+                                <select id="input_ferias_vencidas" onchange="showoptions(this);" >
+                                  <option value="Não">Não</option>  
+                                  <option value="Sim">Sim</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr style="visibility: collapse;" id="ferias_num">
+                          <td>Dias de férias vencidas:</td>
+                          <td>
+                            <input type="number" id="input_ferias"/>
+                          </td>
+                      </tr>
+                        <tr>
+                            <td>Filhos com menos de 14 anos ou com invalidez:</td>
+                            <td><input type="number" id="input_dependentes"/></td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center;">
+                        <button class="but" id="botao_rescisao">Calcular </button>
+                    </div>
+                    
+                    <div id="resanchor_rescisao" style="padding:3%"></div>
+                    <div id="resultado_rescisao" style="display:none;margin-left:20%;">
+                        <div class="col-md-8" >
+                         <br><br>
+                        <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                          <thead>
+                            <tr>
+                              <th class="col-md-6" colspan="1">Proventos</th>
+                              <th class="col-md-6" colspan="1">Valores</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-md-6">Saldo do Salário</td>
+                              <td id="output_saldo" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">Aviso prévio indenizado</td>
+                              <td id="output_aviso" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">Rescisão antecipada de contrato de experiência (art. 479 CLT)</td>
+                              <td id="output_rescisao" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Salário família</td>
+                              <td id="output_salario_familia">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">13º salário Proporcional</td>
+                              <td id="output_salario_13_prop" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td class="col-md-6">13º salário indenizado</td>
+                              <td id="output_salario_13_ind" class="col-md-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Férias vencidas</td>
+                              <td id="output_ferias_vencidas">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td>1/3 sobre férias vencidas</td>
+                              <td id="output_terco_ferias_vencidas">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td>Férias proporcionais</td>
+                              <td id="output_ferias_prop">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td>1/3 Sobre férias proporcionais</td>
+                              <td id="output_terco_ferias_prop">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td>Férias indenizadas</td>
+                              <td id="output_ferias_ind">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <td>1/3 Sobre férias indenizadas</td>
+                              <td id="output_terco_ferias_ind">
+                                                  </td>
+                            </tr>
+                            <tr>
+                              <th>TOTAL DE VENCIMENTOS</td>
+                              <td id="output_total_vencimentos">
+                                                  </td>
+                            </tr>
+                          </tbody>
+                        </table>
+            
+                          <table class="table table-hover" style="box-shadow: 0px 2px 10px -2px grey;border-radius: 12px;">
+                            <thead>
+                              <tr>
+                                <th class="col-md-6" colspan="1">Descontos</th>
+                                <th class="col-md-6" colspan="1">Valores</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>INSS</td>
+                                <td id="output_inss"></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>IRRF</td>
+                                <td id="output_irrf"></td>
+                                
+                              </tr>
+                                <tr>
+                                    <td>INSS sobre 13º salário</td>
+                                    <td id="output_inss_13"></td>
+                                </tr>
+                                <tr>
+                                    <td>IRRF sobre 13º salário</td>
+                                    <td id="output_irrf_13"></td>
+                                </tr>
+                                <tr>
+                                    <td>Aviso prévio</td>
+                                    <td id="output_aviso_previo"></td>
+                                </tr>
+                                <tr>
+                                    <td>Rescisão antecipada de contrato de experiência (art. 479 CLT)</td>
+                                    <td id="output_rescisao_ant"></td>
+                                </tr>
+                                <tr>
+                                    <th>TOTAL DE DESCONTOS</th>
+                                    <td id="output_total_desconto"></td>
+                                </tr>
+                                <tr>
+                                    <th>LÍQUIDO RESCISÃO</th>
+                                    <td id="output_liquido_res"></td>
+                                </tr>
+                                
+                            </tbody>
+                          </table>
+            
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="embreve_modal">
+                <a href="#fechar" title="Fechar" class="fechar">x</a>
+                <div style="width: 45%; background-color: transparent;top: 20%;" class="col-lg-12">
+                    <h2>Em Breve...</h2>
+                </div>
+                
+            </div>
         </main>
 
         <footer class="site-footer">
@@ -234,10 +615,330 @@
     <script src="dist/js/main.min.js"></script>
     <script src="jquery.min.js"></script>
     <script src="src/owlcarousel/dist/owl.carousel.min.js"></script>
+    <script src="src/scripts/main.js"></script>
     <script>
         $(document).ready(function () {
             $(".owl-carousel").owlCarousel();
         });
+    </script>
+    <!-- calc ferias -->
+    <script>
+        document.querySelector('#botao_ferias').addEventListener('click', function () {
+            var input_salario = document.querySelector('#salario_base').value;
+        var input_hora = document.querySelector('#hora_extra').value;
+        var input_abono = document.querySelector('#abono').value;
+        var input_ferias = document.querySelector('#ferias_usufruidas').value;
+        var input_pendentes = document.querySelector('#pendentes').value;
+        var input_adiantamento = document.querySelector('#adiantamento').value;
+        
+        // scroll and show block
+        document.getElementById("resanchor_ferias").scrollIntoView();
+        document.getElementById("resultado_ferias").style.display = "block";
+        
+        // output valores adicionados
+        document.getElementById("output_salario_base").innerHTML = input_salario;
+        document.getElementById("output_hora_extra").innerHTML = input_hora;
+        document.getElementById("output_abono_pecuniario").innerHTML = input_abono;
+        document.getElementById("output_dias_usufruidos").innerHTML = input_ferias;
+        document.getElementById("output_numero_pendentes").innerHTML = input_pendentes;
+        document.getElementById("output_adiantar_parcela").innerHTML = input_adiantamento;
+        
+        //  init calculos
+
+        input_salario = parseFloat(input_salario);
+        input_hora = parseFloat(input_hora);
+        input_ferias = parseInt(input_ferias);
+        input_pendentes = parseInt(input_pendentes);
+        var valorabono=0;
+        var addabono=0;
+        var parcela13=0;
+        // salario das ferias:
+        // (salario base + media hora) dividido por 30 multiplicado pelos dias usufruidos
+        var salferias = parseFloat(salferias);
+        salferias = (input_salario + input_hora)*input_ferias/30;
+        salferias = parseFloat(salferias).toFixed(2);
+        
+        // adicional de ferias 1/3
+        // um terço do salario das ferias
+
+        var addferias = parseFloat(addferias);
+        addferias = salferias/3;
+        addferias = parseFloat(addferias).toFixed(2);
+
+        // abono pecuniario e adicional do abono
+        // um terço do salario base e um terco do valor do abono
+
+        if(input_abono == "Sim"){
+          valorabono = (input_salario+input_hora)/3;
+          addabono = valorabono/3;
+          valorabono = parseFloat(valorabono).toFixed(2);
+          addabono = parseFloat(addabono).toFixed(2);
+        }
+        else{
+          valorabono = 0;
+          addabono = 0;
+        }
+
+        
+
+        // parcela adiantada
+        // 50% do salario base
+
+        if(input_adiantamento == "Sim"){
+          parcela13 = input_salario/2;
+          parcela13 = parseFloat(parcela13).toFixed(2);
+
+        }
+        else{
+          parcela13 = 0;
+        }
+
+
+        // calculo proventos
+        var total_proventos = parseFloat(total_proventos);
+        total_proventos = parseFloat(salferias)+parseFloat(addferias)+parseFloat(valorabono)+parseFloat(addabono)+parseFloat(parcela13);
+        total_proventos = parseFloat(total_proventos).toFixed(2);
+
+        // desconto inss
+
+        var percentual_inss = parseFloat(percentual_inss);
+        percentual_inss = 8.0;
+        var desconto_inss = parseFloat(desconto_inss);
+        desconto_inss= (parseFloat(salferias)+parseFloat(addferias)) * parseFloat(percentual_inss)/100;
+        desconto_inss = parseFloat(desconto_inss).toFixed(2);
+
+        // desconto irff
+        var percentual_irff = parseFloat(percentual_irff);
+        percentual_irff = 0.00;
+        var desconto_irff = parseFloat(desconto_irff);
+        desconto_irff = parseFloat(total_proventos) * percentual_irff;
+        desconto_irff = parseFloat(desconto_irff).toFixed(2);
+
+        // total descontos
+        var totaldesconto = parseFloat(totaldesconto);
+        totaldesconto = parseFloat(desconto_irff)+parseFloat(desconto_inss);
+        totaldesconto = parseFloat(totaldesconto).toFixed(2);
+
+        // resultado final
+
+        var resultadofinal = parseFloat(resultadofinal);
+        resultadofinal = parseFloat(total_proventos)-parseFloat(totaldesconto);
+        resultadofinal = parseFloat(resultadofinal).toFixed(2);
+
+        // output valores
+
+        document.getElementById("output_salario_ferias").innerHTML = salferias;
+        document.getElementById("output_adicional_ferias").innerHTML = addferias;
+        document.getElementById("output_abono_pec").innerHTML = valorabono;
+        document.getElementById("output_adicional_abono").innerHTML = addabono;
+        document.getElementById("output_percentual_inss").innerHTML = percentual_inss;
+        document.getElementById("output_desconto_inss").innerHTML = desconto_inss;
+        document.getElementById("output_percentual_irff").innerHTML = percentual_irff;
+        document.getElementById("output_desconto_irff").innerHTML = desconto_irff;
+        document.getElementById("output_parcela_adiantada").innerHTML = parcela13;
+        document.getElementById("output_total_provento").innerHTML = total_proventos;
+        document.getElementById("output_total_desconto").innerHTML = totaldesconto;
+        document.getElementById("output_resultado_final").innerHTML = resultadofinal;
+        });
+            
+    </script>
+    <!-- calc rescisao -->
+    <script>
+       
+
+        function showoptions(x) {
+          if (x.value == "Sim") {
+            
+            document.getElementById("ferias_num").style.visibility = "visible";
+          } else {
+            document.getElementById("ferias_num").style.visibility = "colapse";
+          }
+        }
+        function showoptionsmotivo(x) {
+          if (x.value == "4" || x.value == "5") {
+            
+            document.getElementById("fimcontrato").style.visibility = "visible";
+          } else {
+            document.getElementById("fimcontrato").style.visibility = "collapse";
+          }
+        }
+  
+      document.querySelector('#botao_rescisao').addEventListener('click', function () {
+  
+        // get values from form
+          
+          var input_admissao = document.getElementById("input_admissao").value;
+          var input_rescisao = document.getElementById("input_rescisao").value;
+          var input_motivo = document.querySelector('#input_motivo').value;
+          var input_final = document.querySelector('#input_fim_contrato').value;
+          var input_salario = document.querySelector('#input_salario').value;
+          var input_aviso = document.querySelector('#input_aviso').value;
+          var input_ferias = document.querySelector('#input_ferias').value;
+          var input_ferias_vencidas = document.querySelector("#input_ferias_vencidas").value;
+          var input_dependentes = document.querySelector('#input_dependentes').value;
+  
+          
+          // scroll and show result table
+          document.getElementById("resanchor_rescisao").scrollIntoView();
+          document.getElementById("resultado_rescisao").style.display = "block";
+  
+          // init variables
+          
+          var date1 = new Date(input_admissao);
+          var date2 = new Date(input_rescisao);
+          var date3 = new Date(input_final);
+  
+          var delta_dias_adm_res = date2.getTime() - date1.getTime();
+          delta_dias_adm_res = delta_dias_adm_res/(1000*60*60*24);
+          var delta_dias_contrato = date3.getTime() - date2.getTime();
+          delta_dias_contrato = delta_dias_contrato/(1000*60*60*24);
+          var avisoval = parseFloat(0.00);
+          var salfam = parseFloat(0.00);
+          var salario_indenizado_13 = parseFloat(0.00);
+          var ferias_indenizadas = parseFloat(0.00);
+          var terco_ferias_indenizadas = parseFloat(0.00);
+          var recisao_antecipada = parseFloat(0.00);
+  
+              // calculo saldo do salario
+          // ultimo salario/30 * dias trabalhados
+  
+          var saldosal = parseFloat(input_salario)*(delta_dias_adm_res+1)/30
+          saldosal = parseFloat(saldosal).toFixed(2);
+  
+          // menu motivo
+  
+          if(input_motivo=="0"){
+            // dispensa sem justa causa
+            if(input_aviso=="Indenizado"){
+              avisoval = parseFloat(input_salario);
+              avisoval = parseFloat(avisoval).toFixed(2);
+              salfam = parseFloat(0.00).toFixed(2);
+              salario_indenizado_13 = parseFloat(saldosal)/2;
+              salario_indenizado_13 = parseFloat(salario_indenizado_13).toFixed(2);
+              ferias_indenizadas = parseFloat(salario_indenizado_13);
+              ferias_indenizadas = parseFloat(ferias_indenizadas).toFixed(2);
+              terco_ferias_indenizadas = parseFloat(ferias_indenizadas)/3;
+              terco_ferias_indenizadas = parseFloat(terco_ferias_indenizadas).toFixed(2);
+            }
+            else{
+              // salario familia
+              // 14% do saldo salario por dependente
+              salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+              salfam = parseFloat(salfam).toFixed(2);
+            }
+                
+          } else if(input_motivo=="1"){
+            // dispensa com justa causa
+  
+            // salario familia
+              // 14% do saldo salario por dependente
+              salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+              salfam = parseFloat(salfam).toFixed(2);
+          } else if(input_motivo=="2"){
+            // pedido de demissao
+            // salario familia
+            // 14% do saldo salario por dependente
+            salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+            salfam = parseFloat(salfam).toFixed(2);
+  
+          } else if(input_motivo=="3"){
+            // Término do contrato de experiência
+          
+            // salario familia
+            // 14% do saldo salario por dependente
+            salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+            salfam = parseFloat(salfam).toFixed(2);
+            
+          } else if(input_motivo=="4"){
+            // Recisão antecipada de contrato de experiência pelo empregador
+            // salario familia
+            // 14% do saldo salario por dependente
+            salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+            salfam = parseFloat(salfam).toFixed(2);
+            recisao_antecipada = parseFloat(saldosal)* parseInt(delta_dias_contrato)/10;
+            recisao_antecipada = parseFloat(recisao_antecipada).toFixed(2);
+  
+          } else if(input_motivo=="5"){
+            // Recisão antecipada de contrato de experiência pelo empregado
+            // salario familia
+            // 14% do saldo salario por dependente
+            salfam = parseFloat(saldosal)* parseInt(input_dependentes) * 13.89/100
+            salfam = parseFloat(salfam).toFixed(2);
+            recisao_antecipada = parseFloat(saldosal)* parseInt(delta_dias_contrato)/10;
+            recisao_antecipada = parseFloat(recisao_antecipada).toFixed(2);
+  
+          }
+          
+          
+  
+      
+          
+          // ferias vencidas
+          // 20% do saldo do salario * dias de ferias vencidas
+          if(input_ferias_vencidas=="Sim"){
+            var ferias_vencidas = parseFloat(saldosal)* parseInt(input_ferias) *20/100;
+            ferias_vencidas = parseFloat(ferias_vencidas).toFixed(2);
+          }
+          else{
+            var ferias_vencidas = parseFloat(0.00);
+            ferias_vencidas = parseFloat(ferias_vencidas).toFixed(2);
+          }
+          
+  
+          // terco sobre ferias vencidas
+          // 1/3 de ferias_vencidas
+  
+          var terco_ferias_vencidas = parseFloat(ferias_vencidas)/3;
+          terco_ferias_vencidas = parseFloat(terco_ferias_vencidas).toFixed(2);
+  
+          // calculo inss
+          var inss = parseFloat(inss);
+          inss = saldosal * 7.5 /100;
+          inss = parseFloat(inss).toFixed(2);
+  
+          // total de vencimentos
+          // saldo do salario + aviso previo + rescisao + salario familia + 13salarioindenizado
+          // + ferias vencidas + 1/3 sobre ferias vencidas + ferias indenizadas
+          // + 1/3 sobre ferias indenizadas
+  
+          var totalvencimentos = parseFloat(saldosal) + parseFloat(avisoval) + parseFloat(recisao_antecipada)+ parseFloat(salfam)+ parseFloat(salario_indenizado_13);
+          totalvencimentos = parseFloat(totalvencimentos) + parseFloat(ferias_vencidas) + parseFloat(terco_ferias_vencidas) + parseFloat(ferias_indenizadas) + parseFloat(terco_ferias_indenizadas);
+          totalvencimentos = parseFloat(totalvencimentos).toFixed(2);
+          
+          // total de descontos
+          var total_descontos = parseFloat(inss);
+          total_descontos = parseFloat(total_descontos).toFixed(2);
+          // liquido rescisao
+  
+          var liquido_res = parseFloat(totalvencimentos)- parseFloat(total_descontos);
+          liquido_res = parseFloat(liquido_res).toFixed(2);
+  
+          // write values
+          document.getElementById("output_saldo").innerHTML = saldosal;
+          document.getElementById("output_aviso").innerHTML = avisoval;
+          document.getElementById("output_rescisao").innerHTML = recisao_antecipada;
+          document.getElementById("output_salario_familia").innerHTML = salfam;
+          // document.getElementById("13salprop").innerHTML = salario;
+          document.getElementById("output_salario_13_ind").innerHTML = salario_indenizado_13;
+          document.getElementById("output_ferias_vencidas").innerHTML = ferias_vencidas;
+          document.getElementById("output_terco_ferias_vencidas").innerHTML = terco_ferias_vencidas;
+          // document.getElementById("feriasprop").innerHTML = salario;
+          // document.getElementById("tercoferiasprop").innerHTML = salario;
+          document.getElementById("output_ferias_ind").innerHTML = ferias_indenizadas;
+          document.getElementById("output_terco_ferias_ind").innerHTML = terco_ferias_indenizadas;
+          document.getElementById("output_total_vencimentos").innerHTML = totalvencimentos;
+          document.getElementById("output_inss").innerHTML = inss;
+          // document.getElementById("irrf").innerHTML = salario;
+          // document.getElementById("insssob13").innerHTML = salario;
+          // document.getElementById("irrfsob13").innerHTML = salario;
+          // document.getElementById("avisoprevio").innerHTML = salario;
+          // document.getElementById("resantcontrato").innerHTML = salario;
+          document.getElementById("output_total_desconto").innerHTML = total_descontos;
+          document.getElementById("output_liquido_res").innerHTML = liquido_res;
+  
+      });
+
+  
     </script>
 </body>
 
