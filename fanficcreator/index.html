@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZYDCSB3NC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CZYDCSB3NC');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Martins Dev</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../src/svg/dark.svg">
+    
+    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <link rel="stylesheet" href="../src/owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../src/owlcarousel/dist/assets/owl.theme.default.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/76b15f09c3.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a style="text-decoration: none;" href="#">
+                                <p>Fanfic Creator</p>
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <h1 class="hero-title mt-0">Crie sua Fanfic</h1>
+                            <p class="hero-paragraph">Selecione a categoria:</p>
+                            <div>
+                              <div class="col-lg-12" >
+                                <table style="width:100%">
+                                  
+                                    <tr>
+                                        <td>Categoria</td>
+                                        <td>
+                                            <select id="category">
+                                                <option value="Hot">Hot</option>
+                                                <option value="Normal">Normal</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nome Personagem 1:</td>
+                                        <td>
+                                          <input id="name-1" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sexo personagem 1:</td>
+                                        <td>
+                                            <select id="sex-1">
+                                                <option value="Mas">Masculino</option>
+                                                <option value="Fem">Feminino</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                      <tr>
+                                        <td>Nome Personagem 2:</td>
+                                        <td>
+                                          <input id="name-2" type="text">
+                                        </td>
+                                    </tr>
+                                      <td>Sexo personagem 2:</td>
+                                      <td>
+                                          <select id="sex-2">
+                                            <option value="Mas">Masculino</option>
+                                            <option value="Fem">Feminino</option>
+                                          </select>
+                                      </td>
+                                  </tr>
+                                </table>
+                                <div style="text-align:center;">
+                                    <button class="but" id="botao_fanfic">Criar</button>
+                                </div>
+                                
+                                <div id="resanchor" style="padding:3%"></div>
+                                <div id="resultado" style="display:none;margin-left:20%;">
+                                    <div class="col-md-8" >
+                                        <div>
+                                          <h2 id="output-title"></h2>
+                                          <p id="output-texto">
+                                          </p>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </section>  
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://www.linkedin.com/in/clara-martins-39a007143/">
+                                <span class="screen-reader-text">Linkedin</span>
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/cmcm11320">
+                                <span class="screen-reader-text">Github</span>
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="footer-copyright" style="text-align: center;">&copy; 2021, <a
+                        href="https://www.linkedin.com/in/clara-martins-39a007143/">Martins Dev</a></div>
+            </div>
+            <div style="color: transparent;">Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
+        </footer>
+    </div>
+
+    <script src="../dist/js/main.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="../src/scripts/main.js"></script>
+    <script>
+      document.querySelector('#botao_fanfic').addEventListener('click', function () {
+          var input_nome1 = document.querySelector('#name-1').value;
+          var input_nome2 = document.querySelector('#name-2').value;
+          var input_category = document.querySelector('#category').value;
+          var input_gender1 = document.querySelector('#gender-1').value;
+          var input_gender2 = document.querySelector('#gender-2').value;
+
+      
+          // scroll and show block
+          document.getElementById("resanchor").scrollIntoView();
+          document.getElementById("resultado").style.display = "block !important";
+      
+      
+      //  init calculos
+        
+        if (input_category=='Hot'){
+          var rand = Math.floor(Math.random() * 10);
+          rand = 0;
+          switch(rand){
+            case 0:
+              var title = "fleb"
+              var text = "oifjgod"
+              break;
+            case 1:
+              break;
+            default: 
+              break;
+          }
+        }
+        else{
+          var title = "N tem"
+          var text = "Só putaria"
+        }
+      
+
+      // output valores
+
+      document.getElementById("output_texto").innerHTML = text;
+      document.getElementById("output_title").innerHTML = title;
+      
+      });
+          
+  </script>
+    
+</body>
+
+</html>
