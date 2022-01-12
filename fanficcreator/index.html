@@ -52,7 +52,7 @@
                     <div class="hero-inner">
                         <div class="hero-copy">
                             <h1 class="hero-title mt-0">Crie sua Fanfic</h1>
-                            <p class="hero-paragraph">Selecione a categoria:</p>
+                            
                             <div>
                               <div class="col-lg-12" >
                                 <table style="width:100%">
@@ -98,16 +98,15 @@
                                   </tr>
                                 </table>
                                 <div style="text-align:center;">
-                                    <button class="but" id="botao_fanfic">Criar</button>
+                                    <button class="but" id="criar">Criar</button>
                                 </div>
                                 
                                 <div id="resanchor" style="padding:3%"></div>
                                 <div id="resultado" style="display:none;margin-left:20%;">
                                     <div class="col-md-8" >
-                                        <div>
-                                          <h2 id="output-title"></h2>
-                                          <p id="output-texto">
-                                          </p>
+                                        <div style="color: white;">
+                                          <h2 id="output_title"></h2>
+                                          <p id="output_texto"></p>
                                         </div>
                                   </div>
                                 </div>
@@ -147,45 +146,73 @@
     <script src="jquery.min.js"></script>
     <script src="../src/scripts/main.js"></script>
     <script>
-      document.querySelector('#botao_fanfic').addEventListener('click', function () {
-          var input_nome1 = document.querySelector('#name-1').value;
-          var input_nome2 = document.querySelector('#name-2').value;
-          var input_category = document.querySelector('#category').value;
-          var input_gender1 = document.querySelector('#gender-1').value;
-          var input_gender2 = document.querySelector('#gender-2').value;
-
-      
+      document.querySelector('#criar').addEventListener('click', function () {
+         
           // scroll and show block
           document.getElementById("resanchor").scrollIntoView();
-          document.getElementById("resultado").style.display = "block !important";
+          document.getElementById("resultado").style.display = "block";
       
-      
-      //  init calculos
-        
-        if (input_category=='Hot'){
-          var rand = Math.floor(Math.random() * 10);
-          rand = 0;
-          switch(rand){
-            case 0:
-              var title = "fleb"
-              var text = "oifjgod"
-              break;
-            case 1:
-              break;
-            default: 
-              break;
+
+          // get values
+          var nome1 = document.querySelector('#name-1').value;
+          var nome2 = document.querySelector('#name-2').value;
+          var sex1 = document.querySelector('#sex-1').value;
+          var sex2 = document.querySelector('#sex-2').value;
+          var cat = document.querySelector('#category').value;
+
+          //  init calculos
+          if (cat=="Hot"){
+            //gerador de titulo
+            var randtitle = Math.floor(Math.random() * 10);
+            switch(randtitle){
+              case 0: 
+                var title = String("Uma Noite com ")+nome1;
+                break;
+              case 1:
+                var title = String("Um Trabalho Diferente");
+                break;
+              case 2:
+                if(sex1=="Fem"){
+                  var title = String("A Garota da Casa ao Lado");
+                }
+                else{
+                  var title = String("O Garoto da Casa ao Lado");
+                }
+                
+                break;
+              case 3:
+                var title = String("Luxúria");
+                break;
+              default:
+                var title = String("title");
+                break;
+            }
+            //gerador de fic
+            var randtext = Math.floor(Math.random() * 2);
+            switch(randtext){
+              case 0: 
+                var text = String("Era uma sexta-feira, ")+nome1+" e "+nome2 +" estavam andando por uma rua quase deserta, se não fossem pelos dois que caminhavam. <br> Os olhos de " +nome1+ " brilhavam na lua cheia que estava presente naquela noite, fazendo o clima ainda mais macabro...<br><br>"+nome2+" era um dançarino de uma boate muito conhecida por ser frequentada por mafiosos e criminosos<br><br>  - 'Ei! Pare aí!' - um homem gritou fazendo com que "+nome2+" congelasse no lugar. Passos estavam se aproximando, até que "+nome1+" decide proteger "+nome2+"<br><br>  -'O que você quer, seu merda?'<br>  -'Eu paguei uma dança com esse lixo e ele foi embora'<br> -'É mentira! Você não pagou e estava me assediando!' - disse "+nome2+"<br> -'Mentira!' - o homem disse,<br> Antes que ele pudesse retrucar "+nome1+" tira uma arma do bolso e mata o homem indesejado<br>  -E-eu não acredito... - Disse "+nome2+" aos prantos<br> -'Você me salvou! Eu te amo!'<br> Eles começam a se beijar loucamente no beco escuro<br>A falta de ar se fez presente entre eles, fazendo com que a unica coisa que nos ligasse era um pequeno fio de saliva. As mãos de "+nome1+ " eram grandes, uma delas estava na cintura de "+nome2+" e a outra no pescoço.<br>"+nome1+" puxou o pescoço do outro com força, mas delicadeza, começando assim um beijo ainda melhor que o primeiro<br>No beco "+nome2+" deitou no chão e puxou seu amado para cima dele, naquele momento "+nome1+" começou a beijar seu pescoço descendo e com um movimento rápido rasgou a blusa do outro, e antes que ele pudesse reclamar, desceu com a língua para seu mamilo direito, fazendo-o gemer alto<br>Suas mãos eram firmes e iam passando e explorando por seu corpo, sua boca fazia o mesmo enquanto "+nome2+" se contorcia de prazer por seus toques, que hora eram gentis e hora eram mais agressivos<br>Sua boca continuou a descer até que chegou ao cós da calça de "+nome2+" que tirou sem cerimonias, assim como a cueca<br>"+nome1+" olhou seu amado de cima a baixo como se fosse sua presa e ele seu predador.<br>-'Você não acha injusto você estar de roupas e eu não? - Retrucou "+nome2+"<br> O outro dá um sorriso de canto e desabotoa os botões da camisa um por um, relevando seu corpo monumental, desenhado pelo proprio deus Apolo.<br>"+nome1+" passa a mão por seu corpo, chega no ouvido de seu amado e sussurra - 'Fica de quatro pra mim'<br> Prontamente "+nome2+" fica na posição pedida, "+nome1+" cospe em seu membro e começa a adentrar enquanto dá fortes tapas na bunda de seu amado, com a outra mão segura com força seu quadril, enquanto ambos urram de prazer.<br> "+nome1+" começa com movimentos mais rápidos<br>  -'Que visão linda, essa putinha gulosa perdendo o resto da sanidade enquanto meu pau entra fundo nela - ele deu outro tapa, levou as mãos ao quadril, segurando com força e acelerando ainda mais os movimentos.<br>  -'aaaaaahn... aaaaaaahhnnn... "+nome1+" assim você vai me fazer gozar....<br>Mas isso não o fez parar, isso só o fez meter ainda mais forte, surrando a próstata do outro. Não demorou muito para que "+nome2+" sentisse o líquido quente o preenchendo completamente, fazendo com que ele também derramasse seu fluido.<br>  -'Eu te amo "+nome1+" - Ele disse.<br>Ambos foram para suas casas e nunca mais se viram." ;
+                break;
+              case 1:
+                var text = String("caso 1");
+                break;
+              default:
+                var text = String("text");
+                break;
+            }
+            
           }
-        }
-        else{
-          var title = "N tem"
-          var text = "Só putaria"
-        }
-      
+          else{
+            var title = String("Não tem");
+            var text = String("foi mal");
+          }
+          
 
-      // output valores
 
-      document.getElementById("output_texto").innerHTML = text;
-      document.getElementById("output_title").innerHTML = title;
+          // output valores
+          document.getElementById("output_title").innerHTML = title;
+          document.getElementById("output_texto").innerHTML = text;
+
       
       });
           
