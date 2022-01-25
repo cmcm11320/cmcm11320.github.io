@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZYDCSB3NC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CZYDCSB3NC');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Martins Dev</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../src/svg/dark.svg">
+    
+    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <link rel="stylesheet" href="../src/owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../src/owlcarousel/dist/assets/owl.theme.default.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/76b15f09c3.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a style="text-decoration: none;" href="#">
+                                <p>Encontrar palavras</p>
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <h1 class="hero-title mt-0">Encontrar palavra</h1>
+                            
+                            <div>
+                              <div class="col-lg-12" >
+                                <table style="width:100%">
+                                    
+                                    <tr>
+                                        <td>Número de caracteres:</td>
+                                        <td>
+                                          <input id="num" type="number">
+                                        </td>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>Começa com:</td>
+                                        <td>
+                                          <input id="start" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Termina com:</td>
+                                      <td>
+                                        <input id="fim" type="text">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Contém:</td>
+                                    <td>
+                                      <input id="has" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td>Não Contém:</td>
+                                  <td>
+                                    <input id="n-has" type="text">
+                                  </td>
+                              </tr>
+                                      
+                                </table>
+                                <div style="text-align:center;">
+                                    <button class="but" id="criar">Buscar</button>
+                                </div>
+                                
+                                <div id="resanchor" style="padding:3%"></div>
+                                <div id="resultado" style="display:none;margin-left:20%;">
+                                    <div class="col-md-8" >
+                                        <div style="color: white;">
+                                          <h2 id="output_title"></h2>
+                                          <p id="output_texto"></p>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </section>  
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://www.linkedin.com/in/clara-martins-39a007143/">
+                                <span class="screen-reader-text">Linkedin</span>
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/cmcm11320">
+                                <span class="screen-reader-text">Github</span>
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="footer-copyright" style="text-align: center;display: block;"><p> &copy; 2022,<a href="https://www.linkedin.com/in/clara-martins-39a007143/">Martins Dev</a></p>
+                        <p><a href="https://cmcm11320.github.io"> Main page</a></p></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../dist/js/main.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="../src/scripts/main.js"></script>
+    <script>
+      document.querySelector('#criar').addEventListener('click', function () {
+         
+          // scroll and show block
+          document.getElementById("resanchor").scrollIntoView();
+          document.getElementById("resultado").style.display = "block";
+      
+          var num = document.querySelector('#num').value;
+          var start = document.querySelector('#start').value;
+          var fim = document.querySelector('#fim').value;
+          var has = document.querySelector('#has').value;
+          var nhas = document.querySelector('#n-has').value;
+
+          
+          
+          var title = String("Mostrando palavras com ")+num+ " caracteres";
+          var text = String("Mostrando palavra com ")+start+ " caracteres";
+
+          // output valores
+          document.getElementById("output_title").innerHTML = title;
+          document.getElementById("output_texto").innerHTML = text;
+
+      
+      });
+          
+  </script>
+    
+</body>
+
+</html>
