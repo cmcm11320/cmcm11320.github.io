@@ -72,6 +72,9 @@ html {
     .project-2 h3{
         font-size: 100% !important;
     }
+    #canvas12{
+        display: none;
+    }
 }
 @media only screen and (min-width: 768px){
     /*desktop*/
