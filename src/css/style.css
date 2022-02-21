@@ -66,6 +66,12 @@ html {
     #resultado{
         margin-left:0 !important;
     }
+    .project-2{
+        font-size: 80% !important;
+    }
+    .project-2 h3{
+        font-size: 100% !important;
+    }
 }
 @media only screen and (min-width: 768px){
     /*desktop*/
