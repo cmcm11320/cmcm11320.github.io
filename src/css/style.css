@@ -75,6 +75,9 @@ html {
     #canvas12{
         display: none;
     }
+    .but_more{
+        border-radius: 50px !important;
+    }
 }
 @media only screen and (min-width: 768px){
     /*desktop*/
