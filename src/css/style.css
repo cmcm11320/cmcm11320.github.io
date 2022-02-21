@@ -81,18 +81,11 @@ html {
 }
 
 .but_more{
-    background-color:#5DC3D0;
-    color:black;
-    padding: 5%;
-    border-radius: 10px;
+    border-radius: 10px !important;
     text-decoration: none !important;
 
 }
 
-.but_more:hover{
-    background-color:#393939;
-    color: white;
-}
 
 .name_but{
     text-decoration: none !important;
