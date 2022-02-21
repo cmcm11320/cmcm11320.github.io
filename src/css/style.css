@@ -137,3 +137,9 @@ canvas {
 #canvas2 {
   filter: blur(1px);
 }
+
+#canvas12 {
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+}
