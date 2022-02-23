@@ -1,0 +1,220 @@
+<style>
+    body{
+  display:grid;
+  place-items:center;
+  height:100vh;
+  margin:0;
+  background-color:#111;
+}
+
+.wifi-loader{
+  width:20px;
+  height:20px;
+  background-color:#444;
+  border-radius:50%;
+  position:relative;
+  transform:translateY(45px);
+  animation:glow 2s linear infinite;
+}
+
+.bar,
+.bar::before,
+.bar::after{
+  border:15px solid #444;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-bottom:15px solid transparent;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.bar{
+  width:40px;
+  height:40px;
+  top:-25px;
+  animation:bar-glow1 2s linear infinite;
+}
+
+.bar::before{
+  content:"";
+  width:90px;
+  height:90px;
+  top:-40px;
+  animation:bar-glow2 2s linear infinite;
+}
+
+.bar::after{
+  content:"";
+  width:140px;
+  height:140px;
+  top:-65px;
+  animation:bar-glow3 2s linear infinite;
+}
+
+@keyframes glow{
+  20%{
+    background-color:#444;
+  }
+  
+  21%{
+    background-color:#ff7a00;
+  }
+  
+  100%{
+    background-color:#ff7a00;
+  }
+}
+
+@keyframes bar-glow1{
+  40%{
+    border-top-color:#444;
+  }
+  
+  41%{
+    border-top-color:#ff7a00;
+  }
+  
+  100%{
+    border-top-color:#ff7a00;
+  }
+}
+
+@keyframes bar-glow2{
+  60%{
+    border-top-color:#444;
+  }
+  
+  61%{
+    border-top-color:#ff7a00;
+  }
+  
+  100%{
+    border-top-color:#ff7a00;
+  }
+}
+
+@keyframes bar-glow3{
+  80%{
+    border-top-color:#444;
+  }
+  
+  81%{
+    border-top-color:#ff7a00;
+  }
+  
+  100%{
+    border-top-color:#ff7a00;
+  }
+}
+
+.status {
+  padding: 20px 40px;
+  font-family: helvetica;
+  color: #ffff;
+  letter-spacing: 1px;
+}
+#progress{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+</style>
+
+<div class="wifi-loader">
+    <div class="bar"></div>
+  </div>
+  <h1 id="progress">o JavaScript está desativado, ou seu navegador é muuuuuuito lento</h1>
+  <p class="status"></p>
+
+
+  
+  <script>
+      const status = document.querySelector(".status");
+
+let online = () => {
+  status.innerText = "Connection Available";
+  status.style.backgroundColor = "#77D970";
+};
+
+let offline = () => {
+  status.innerText = "No Connection";
+  status.style.backgroundColor = "#E02401";
+};
+
+/* "window.navigator.onLine" Returns the online status of the browser. 
+      The property returns a boolean value, with 'true' meaning online and 'false' meaning offline. */
+if (window.navigator.onLine) {
+  online();
+} else {
+  offline();
+}
+
+window.addEventListener("online", online);
+window.addEventListener("offline", offline);
+
+  </script>
+
+  <script>
+      var imageAddr = "http://www.kenrockwell.com/contax/images/g2/examples/31120037-5mb.jpg"; 
+var downloadSize = 4995374; //bytes
+
+function ShowProgressMessage(msg) {
+    if (console) {
+        if (typeof msg == "string") {
+            console.log(msg);
+        } else {
+            for (var i = 0; i < msg.length; i++) {
+                console.log(msg[i]);
+            }
+        }
+    }
+    
+    var oProgress = document.getElementById("progress");
+    if (oProgress) {
+        var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+        oProgress.innerHTML = actualHTML;
+    }
+}
+
+function InitiateSpeedDetection() {
+    ShowProgressMessage("Carregando...");
+    window.setTimeout(MeasureConnectionSpeed, 1);
+};    
+
+if (window.addEventListener) {
+    window.addEventListener('load', InitiateSpeedDetection, false);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', InitiateSpeedDetection);
+}
+
+function MeasureConnectionSpeed() {
+    var startTime, endTime;
+    var download = new Image();
+    download.onload = function () {
+        endTime = (new Date()).getTime();
+        showResults();
+    }
+    
+    download.onerror = function (err, msg) {
+        ShowProgressMessage("Erro");
+    }
+    
+    startTime = (new Date()).getTime();
+    var cacheBuster = "?nnn=" + startTime;
+    download.src = imageAddr + cacheBuster;
+    
+    function showResults() {
+        var duration = (endTime - startTime) / 1000;
+        var bitsLoaded = downloadSize * 8;
+        var speedBps = (bitsLoaded / duration).toFixed(2);
+        var speedKbps = (speedBps / 1024).toFixed(2);
+        var speedMbps = (speedKbps / 1024).toFixed(2);
+        ShowProgressMessage([
+            "Sua velocidade de conexão é:", 
+            speedMbps + " Mbps"
+        ]);
+    }
+}
+  </script>
