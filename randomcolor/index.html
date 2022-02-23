@@ -1,0 +1,82 @@
+<style>
+    body{
+  background-color:#000;
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  text-align:center;
+}
+
+.current-color{
+  font-size:50px;
+  color:#fff;
+  text-shadow:0 0 3px #000;
+  font-family: impact;
+}
+
+.generate-btn{
+  padding:16px 32px;
+  background-color:transparent;
+  border:3px solid #fff;
+  color:#fff;
+  text-transform:capitalize;
+  font-size:30px;
+  cursor:pointer;
+  box-shadow:0 0 3px #000;
+}
+#pop-up{
+    
+    position: absolute;
+}
+
+
+
+</style>
+
+<div class="container">
+    <div style="display: none;" id="pop-up"><p>Copiado</p></div>
+    <h2 class="current-color">#709ac1</h2>
+    
+    <button class="generate-btn">
+      Gerar Cor Aleatória
+    </button>
+  </div>
+  
+<script>
+    let currentColor = document.querySelector(".current-color");
+let bodyElem = document.querySelector("body");
+let generateBtn = document.querySelector(".generate-btn");
+
+bodyElem.style.backgroundColor = currentColor.innerText;
+
+generateBtn.addEventListener("click", () => {
+  let randomColor = "";
+  let characters = "0123456789abcdef";
+
+  for (i = 0; i < 6; i++) {
+    randomColor = randomColor + characters[Math.floor(Math.random() * 16)];
+  }
+  currentColor.innerText = "#" + randomColor;
+  bodyElem.style.backgroundColor = currentColor.innerText;
+});
+
+const h2 = document.querySelector("h2");
+
+h2.onclick = function() {
+  document.execCommand("copy");
+}
+
+h2.addEventListener("copy", function(event) {
+  event.preventDefault();
+  if (event.clipboardData) {
+    event.clipboardData.setData("text/plain", h2.textContent);
+    console.log(event.clipboardData.getData("text"))
+  }
+  document.getElementById("pop-up").style.display = 'block;'
+});
+</script>
