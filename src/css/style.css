@@ -365,7 +365,7 @@ canvas {
   .text-typewriter-container::after{
     content:" |";
     animation:blink 1s step-end infinite;
-    background-color:#fff;
+    background-color:transparent;
   }
   
   .text-typewriter-container{

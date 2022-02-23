@@ -99,15 +99,15 @@
                                   <div class="back">
                                     <div class="back-content">
                                         <div class="social-media-list">
-                                            <a href="https://www.linkedin.com/in/clara-martins-39a007143/" class="social-media">
+                                            <a target="_blank" href="https://www.linkedin.com/in/clara-martins-39a007143/" class="social-media">
                                               <i class="fab fa-linkedin"></i>
                                               <span>seguir</span>
                                             </a>
-                                            <a href="https://github.com/cmcm11320" class="social-media">
+                                            <a target="_blank" href="https://github.com/cmcm11320" class="social-media">
                                               <i class="fab fa-github"></i>
                                               <span>seguir</span>
                                             </a>
-                                            <a href="https://wa.link/gqwsid" class="social-media">
+                                            <a target="_blank" href="https://wa.link/gqwsid" class="social-media">
                                               <i class="fab fa-whatsapp"></i>
                                               <span>contato</span>
                                             </a>
@@ -144,7 +144,7 @@
                     </div>
                         
 
-                        <a class="button button-primary but-new button-wide-mobile" href="https://wa.link/gqwsid">Entre em
+                        <a class="button button-primary but-new button-wide-mobile" target="_blank" href="https://wa.link/gqwsid">Entre em
                             contato</a>
                         <img class="disable-mobile" src="src/images/wa.link_gqwsid.png">
 
@@ -161,13 +161,13 @@
                 <div class="site-footer-inner">
                     <ul class="footer-social-links list-reset">
                         <li>
-                            <a href="https://www.linkedin.com/in/clara-martins-39a007143/">
+                            <a target="_blank" href="https://www.linkedin.com/in/clara-martins-39a007143/">
                                 <span class="screen-reader-text">Linkedin</span>
                                 <i class="fab fa-linkedin"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/cmcm11320">
+                            <a target="_blank" href="https://github.com/cmcm11320">
                                 <span class="screen-reader-text">Github</span>
                                 <i class="fab fa-github"></i>
                             </a>
@@ -175,11 +175,11 @@
 
                     </ul>
                 </div>
-                <div class="footer-copyright" style="text-align: center;">&copy; 2021, <a
+                <div class="footer-copyright" style="text-align: center;">&copy; 2021, <a target="_blank"
                         href="https://www.linkedin.com/in/clara-martins-39a007143/">Martins Dev</a></div>
             </div>
             
-            <div style="color: transparent !important;">Ícones feitos por <a style="color: transparent !important;" href="https://www.freepik.com" title="Freepik">Freepik</a> from <a style="color: transparent !important;" href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
+            <div style="color: transparent !important;">Ícones feitos por <a target="_blank" style="color: transparent !important;" href="https://www.freepik.com" title="Freepik">Freepik</a> from <a style="color: transparent !important;" href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
             <!--<canvas id='canvas1'></canvas>
             <canvas id='canvas2'></canvas>-->
           </footer>
@@ -190,35 +190,7 @@
     <script src="jquery.min.js"></script>
     <script src="src/owlcarousel/dist/owl.carousel.min.js"></script>
     <script src="src/scripts/main.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".owl-carousel").owlCarousel();
-        });
-    </script>
-    <script>
-        $(".carousel-resp").owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout:2000,
-            autoplayHoverPause: true,
-            responsiveClass:true,
-            responsive: {
-                0:{
-                    items: 1,
-                    nav: false
-                },
-                600:{
-                    items: 2,
-                    nav: false
-                },
-                1000:{
-                    items:3,
-                    nav: false
-                }
-            }
-        })
-    </script>
+
     <script>
       /*matrix script*/
       /*const canvas = document.getElementById('canvas1');
@@ -322,126 +294,7 @@ window.addEventListener('resize', function(){
 })*/
     </script>
     <!-- glub-->
-    <script>
-      const canvas = document.getElementById("canvas12");
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-let particlesArray;
-
-// get mouse position
-let mouse = {
-    x: null,
-    y: null,
-    radius: (canvas.height/80) * (canvas.width/80)
-}
-
-window.addEventListener('mousemove',
-    function(event) {
-        mouse.x = event.x;
-        mouse.y = event.y;
-    }
-);
-
-// create particle
-class Particle {
-    constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-    }
-    // method to draw individual particle
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = '#17F8FA';
-        ctx.fill();
-    }
-    // check particle position, check mouse position, move the particle, draw the particle
-    update() {
-        //check if particle is still within canvas
-        if (this.x > canvas.width || this.x < 0 ) {
-            this.directionX = -this.directionX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-            this.directionY = -this.directionY;
-        }
-
-         //check collision detection - mouse position / particle position
-         let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx*dx + dy*dy);
-        if (distance < mouse.radius + this.size){
-            if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-                this.x += 10;
-            }
-            if (mouse.x > this.x && this.x > this.size * 10) {
-                this.x -= 10;
-            }
-            if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-                this.y += 10;
-            }
-            if (mouse.y > this.y && this.y > this.size * 10) {
-                this.y -= 10;
-            }
-        }
-        // move particle
-        this.x += this.directionX;
-        this.y += this.directionY;
-        // draw particle
-        this.draw();
-
-    }
-}
-
-// create particle array
-function init() {
-    particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 9000;
-    for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 5) + 1;
-        let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 5) - 2.5;
-        let directionY = (Math.random() * 5) - 2.5;
-        let color = '#8C5523';
-
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-    }
-}
-
-
-// animation loop
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0,0,innerWidth, innerHeight);
-
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-    }
-    connect();
-}
-// resize event
-window.addEventListener('resize', 
-    function(){
-        canvas.width = innerWidth;
-        canvas.height = innerHeight;
-        mouse.radius = ((canvas.height/80) * (canvas.height/80));
-        init();
-    }
-);
-
-// mouse out event
-
-
-init();
-animate();
-
-    </script>
     
     
 </body>
