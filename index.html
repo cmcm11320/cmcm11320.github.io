@@ -171,7 +171,7 @@
                         </div>
                             <p class="section-paragraph mb-0">Veja alguns dos meus projetos mais recentes                            </p>
                         </div>
-                        <div class="owl-carousel">
+                        <div id="owl-2" class=" owl-carousel owl-carousel1">
                             <div style="text-decoration: none;"> <img class="name_img" src="src/images/Mockup_CoreFusion_1.png">
                                 <a class="name_but" href="https://corefusion.com.br"><h4>CoreFusion</h4> </a>
                                   </div>
@@ -236,8 +236,8 @@
                             <p class="section-paragraph mb-0">Conheça mais projetos em python, javascript, PHP, entre outros
                             </p>
                         </div>
-                        <div class="owl-carousel" style="text-align: -webkit-center;">
-                            <div class="project-2">
+                        <div id="owl-2" class=" owl-carousel owl-carousel2 " style="text-align: -webkit-center;">
+                            <div class="item project-2">
                                 <h3>Calculadora de Férias</h3>
                                 <p>Aprenda a calcular suas férias</p>
                                 <a class="but_more but-new button button-primary" href="https://reconectabr.com.br/calculadora-de-ferias/">Saiba Mais</a>
@@ -245,7 +245,7 @@
 
                                 </div>
                             </div>
-                            <div class="project-2">
+                            <div class="item project-2">
                                 <h3>Calculadora de Rescisão</h3>
                                 <p>Aprenda a calcular a Rescisão do seu contrato</p>
                                 <a class="but_more but-new button button-primary" href="https://reconectabr.com.br/calculadora-de-rescisao/">Saiba Mais</a>
@@ -253,7 +253,7 @@
 
                                 </div>
                             </div>
-                            <div class="project-2">
+                            <div class="item project-2">
                                 <h3>IA usando Python</h3>
                                 <p>Criação de Inteligência Artificial resolvedora do dilema do Trem</p>
                                 <a class="but_more but-new button button-primary" href="#embreve_modal">Saiba Mais</a>
@@ -261,7 +261,25 @@
 
                                 </div>
                             </div>
+                            <div class="item project-2">
+                                <h3>Sobre Mim</h3>
+                                <p>Saiba mais sobre mim</p>
+                                <a class="but_more but-new button button-primary" href="./clara.html">Saiba Mais</a>
+                                <div style="padding: 2%;">
+
+                                </div>
+                            </div>
+                            <div class="item project-2">
+                                <h3>Gerador de cor</h3>
+                                <p>Gera uma cor aleatória em hex code</p>
+                                <a class="but_more but-new button button-primary" href="./randomcolor/index.html">Saiba Mais</a>
+                                <div style="padding: 2%;">
+
+                                </div>
+                            </div>
                         </div>
+                        
+                           
                         
 
                     </div>
@@ -284,7 +302,7 @@
 
                         <a class="button button-primary but-new button-wide-mobile" href="https://wa.link/gqwsid">Entre em
                             contato</a>
-                        <img src="src/images/wa.link_gqwsid.png">
+                        <img class="disable-mobile" src="src/images/wa.link_gqwsid.png">
 
                     </div>
                 </div>
@@ -293,10 +311,23 @@
             <div class="modal" id="embreve_modal">
                 <a href="#fechar" title="Fechar" class="fechar">x</a>
                 <div style="width: 45%; background-color: transparent;top: 20%;" class="col-lg-12">
-                    <h2>Em Breve...</h2>
+                    <div class="loader">
+                        <svg width="200" height="150" viewBox="0 0 1000 498" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <defs>
+                               <linearGradient id="strokeGradient">
+                                 <stop offset="5%" stop-color="#191919" />
+                                 <stop offset="60%" stop-color="#ff0000" />
+                                 <stop offset="100%" stop-color="#920000" />
+                               </linearGradient>
+                             </defs>
+                             <path class="pulse" d="M0 305.5H266L295.5 229.5L384 496L460 1.5L502.5 377.5L553 305.5H818" stroke-width="8" />
+                           </svg>
+                       <span>Em Breve...</span>
+                     </div>
                 </div>
                 
             </div>
+
         </main>
 
         <footer  class="site-footer">
@@ -335,11 +366,67 @@
     <script src="jquery.min.js"></script>
     <script src="src/owlcarousel/dist/owl.carousel.min.js"></script>
     <script src="src/scripts/main.js"></script>
+    
     <script>
+        //caroussel projetos
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel();
+            $(".owl-carousel1").owlCarousel({
+                loop: true,
+                center:true,
+                autoWidth:true,
+                items:3,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout:2000,
+            autoplayHoverPause: true,
+            responsiveClass:true,
+            responsive: {
+                0:{
+                    items: 1,
+                    nav: false
+                },
+                600:{
+                    items: 2,
+                    nav: false
+                },
+                1000:{
+                    items:3,
+                    nav: false
+                },
+                
+            }
+            });
         });
     </script>
+    
+    <script>
+        //caroussel projetos pessoais
+        $(document).ready(function () {
+            $(".owl-carousel2").owlCarousel({
+                loop: true,
+                center:true,
+                items:3,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout:2000,
+            autoplayHoverPause: true,
+            responsiveClass:true,
+            responsive: {
+                0:{
+                    items: 1,
+                    nav: false
+                },
+                600:{
+                    items: 2,
+                    nav: false
+                },
+                
+                
+            }
+            });
+        });
+    </script>
+    
     <script>
       /*matrix script*/
       /*const canvas = document.getElementById('canvas1');
