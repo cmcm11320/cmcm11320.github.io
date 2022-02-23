@@ -29,9 +29,11 @@
   cursor:pointer;
   box-shadow:0 0 3px #000;
 }
-#pop-up{
-    
+#pop-up{  
     position: absolute;
+    padding: 8px;
+    font-family: monospace;
+    border-radius: 13px;
 }
 
 
@@ -39,7 +41,7 @@
 </style>
 
 <div class="container">
-    <div style="display: none;" id="pop-up"><p>Copiado</p></div>
+    <div style="color: transparent;" id="pop-up"><p>Copiado</p></div>
     <h2 class="current-color">#709ac1</h2>
     
     <button class="generate-btn">
@@ -63,6 +65,8 @@ generateBtn.addEventListener("click", () => {
   }
   currentColor.innerText = "#" + randomColor;
   bodyElem.style.backgroundColor = currentColor.innerText;
+  document.getElementById("pop-up").style.color = "transparent";
+  document.getElementById("pop-up").style.backgroundColor = "transparent";
 });
 
 const h2 = document.querySelector("h2");
@@ -76,7 +80,11 @@ h2.addEventListener("copy", function(event) {
   if (event.clipboardData) {
     event.clipboardData.setData("text/plain", h2.textContent);
     console.log(event.clipboardData.getData("text"))
+    document.getElementById("pop-up").style.color = "black";
+    document.getElementById("pop-up").style.backgroundColor = "#a9a9a9c7";
+    setTimeout(function(){
+    $('#pop-up').hide()
+}, 3000)
   }
-  document.getElementById("pop-up").style.display = 'block;'
 });
 </script>

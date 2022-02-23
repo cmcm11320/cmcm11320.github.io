@@ -454,3 +454,144 @@ canvas {
     transform: translate(5px) rotate(3deg);
   }
   
+  
+.content{
+    width:200px;
+    height:300px;
+    position:relative;
+    transform-style:preserve-3d;
+    cursor:pointer;
+    transition:transform 1500ms ease-in;
+  }
+  
+  .front,
+  .back{
+    position:absolute;
+    width:100%;
+    overflow: hidden;
+    height:100%;
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
+  }
+  
+  .front img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  
+  .front::before{
+    position:absolute;
+    content:"";
+    --offset:10px;
+    top:var(--offset);
+    left:var(--offset);
+   bottom:var(--offset);
+    right:var(--offset);
+    border:4px solid #fff;
+    transform:translateZ(80px);
+  }
+  
+  .back{
+    transform:rotateY(180deg);
+    background-color:#eee;
+    border-radius: 20px;
+  }
+  
+  .back-content{
+    color:#131313;
+    font-family:helvetica;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform:translateZ(80px);
+  }
+  
+  .back-content p{
+    margin-top:10px;
+    font-size:18px;
+  }
+  
+  .container:hover .content{
+    transform:rotateY(180deg);
+  }
+
+  .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 3px solid;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .social-media span {
+    position: absolute;
+  }
+  
+  .social-media:first-child {
+    background-color: #4267b2;
+    border-color: #4267b2;
+  }
+  
+  .social-media:nth-child(2) {
+    background-color: #0088cc;
+    border-color: #0088cc;
+  }
+  
+  .social-media:last-child {
+    background-color: #25D366;
+    border-color: #25D366;
+  }
+  
+  .social-media:not(:last-child) {
+    margin-right: 25px;
+  }
+  
+  .social-media i {
+    color: #fff;
+    font-size: 25px;
+    transition: transform 0.3s;
+  }
+  
+  .social-media span {
+    text-transform: uppercase;
+    font-family: "Century Gothic";
+    font-weight: bolder;
+    transform: translateY(-100px);
+    transition: transform 0.3s;
+  }
+  
+  .social-media:hover i {
+    transform: translateY(100px);
+  }
+  
+  .social-media:hover span {
+    transform: translateY(0);
+  }
+  
+  .social-media:hover {
+    width: 180px;
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  .social-media:first-child span {
+    color: #4267b2;
+  }
+  
+  .social-media:nth-child(2) {
+    color: #0088cc;
+  }
+  
+  .social-media:last-child {
+    color: #25D366;
+  }
+  
