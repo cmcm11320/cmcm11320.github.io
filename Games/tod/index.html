@@ -2,7 +2,12 @@
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
     <link rel="stylesheet" href="../../src/css/style.css">
     <link rel="stylesheet" href="../../dist/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Smooch+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/76b15f09c3.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
 </head>
 <style>
 
@@ -26,6 +31,7 @@
     #or{
        color: blueviolet;
        padding: 0 0 15% 0; 
+       text-shadow: 0 0 20px;
        
     }
     #drink1{
@@ -62,6 +68,9 @@
     box-shadow: inset 0 0 1em rgba(0,170,170,0.5), 0 0 1em rgba(0,170,170,0.5);
 		border: #0dd solid 2px;
     font-variant: all-petite-caps;
+    font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  cursor: pointer;
 }
 #criar:hover{
     background-color: #0dd;
@@ -70,15 +79,18 @@
 
 #download{
     color: rgba(255,255,255,1);
-	background: none;
-	border-radius: 0;
+    background: none;
+    border-radius: 0;
     padding: 1.2% 5%;
-	transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-	margin: 1em;
-    box-shadow: inset 0 0 1em rgba(0,170,170,0.5), 0 0 1em rgba(0,170,170,0.5);
-		border: darkorchid solid 2px;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    margin: 20%;
+    box-shadow: inset 0 0 1em #9932cca6, 0 0 1em #9932ccab;
+    border: darkorchid solid 2px;
     font-variant: all-petite-caps;
     text-decoration: none;
+    font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  cursor: pointer;
 }
 #download:hover{
     background-color: rgb(153, 50, 204);
@@ -95,6 +107,36 @@
   text-shadow: 0 0 20px;
 }
 
+#filter{
+    color: rgba(255,255,255,1);
+    background: none;
+    border-radius: 0;
+    padding: 1.2% 5%;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    box-shadow: inset 0 0 1em rgb(185, 185, 185), 0 0 1em rgb(185, 185, 185);
+    border: white solid 2px;
+    font-variant: all-petite-caps;
+    text-decoration: none;
+    box-shadow: inset 0 0 0.8em rgba(255,255,255,0.3), 0 0 0.8em rgba(255,255,255,0.3);
+        appearance: none;
+        border: white solid 2px;
+    font-variant: all-petite-caps;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  cursor: pointer;
+}
+#filter:hover{
+    color: rgba(0,0,0,0.8);
+		background-color: #fff;
+		box-shadow: inset 0 0 0 rgba(255,255,255,0.3), 0 0 1.2em rgba(255,255,255,0.5);
+}
+#filter option{
+    font-size: 20px;
+}
+
+
 </style>
 <div>
         <section class="hero">
@@ -105,15 +147,23 @@
                         
                         <div>
                           <div class="col-lg-12" >
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero vitae esse facilis nostrum omnis quibusdam officiis, voluptatibus est earum quam provident eos veritatis, tenetur odit id excepturi distinctio minima quasi?</p>
+                            <p>As regras são simples: Arrume os drinks, coloque os filtros que quiser. Clique o botão e faça o que estiver escrito... Ou beba a quantidade indicada na carta.</p>
                            
                             <div>
-                                <p>filtro</p>
+                                <p>Filtrar</p>
+                                <select id="filter">
+                                    <option value="all">Todas</option>
+                                    <option value="vdd">Verdade</option>
+                                    <option value="do">Desafio</option>
+                                    <!--<option value="test">Teste</option>-->
+                                </select>
+                                
                             </div>
                             <div>
                                 <button id="criar">gerar</button>
                             </div>
                             <div id="card1" class="card">
+                                <!--<div id="number"></div>-->
                                 <div class="card-header">
                                     <div id="title1"></div>
                                     <div id="or-title"></div>
@@ -121,6 +171,7 @@
                                 </div>
                                 
                             <div id="content"></div>
+                            <div ><img style="display: none;" id="imageid"></div>
                             <div id="or"></div>
                             <div class="imagescup" >
                                 <img style="visibility: hidden;" src="../../src/images/cup.png" id="drink1"/>
@@ -133,11 +184,16 @@
                             
                                 
                             </div>
-                            <div>
-                                <a href="../../src/doc/Truth Or Drink.pdf" target="_blank" download="Truth Or Drink" id="download">Fazer download do PDF</a>
-                            </div>
+                            
+                        </div>
+                        <div style="margin: 5%;">
+                            <a href="../../src/doc/Truth Or Drink.pdf" target="_blank" download="Truth Or Drink" id="download">Fazer download do PDF</a>
                         </div>
                       </div>
+                      <!--<div>
+                          <input type="file" id="inputexcel">
+                          <table id="tbl-data"></table>
+                      </div>-->
                 </div>
             </div>
         </section>  
@@ -170,11 +226,27 @@
 
 <script>
     document.querySelector('#criar').addEventListener('click', function () {
-        var randtitle = Math.floor(Math.random() * 10);
-        var title
-        var content
-        var drink
-
+        var filter = document.querySelector('#filter').value;
+        document.getElementById("imageid").style.display = "none";
+        var title = "teste"
+        var content = "teste"
+        var drink = 1
+        if(filter=="all"){
+            //de 0 a 60
+            var randtitle = Math.floor(Math.random() * 61);
+        } else if(filter=="do"){
+            // de 0 a 28
+            var randtitle = Math.floor(Math.random() * 29);
+        }
+        else if(filter=="vdd"){
+            // de 29 a 60
+            var randtitle = Math.floor(Math.random() * 61)+29;
+        }
+        else{
+            // apenas 15
+            var randtitle = Math.floor(Math.random() * 1)+15;
+        }
+        //switch do
         switch(randtitle){
             case 0:
                 title = "Do"
@@ -188,14 +260,348 @@
                 
                 break;
             case 2:
+                title = "Do"
+                content = "Ligue para o(a) ex e diga que está com saudade"
+                drink = 2
+                
+                break;
+            case 3:
+                title = "Do"
+                content = "Abra o TikTok e faça a primeira dancinha que aparecer"
+                drink = 3
+                
+                break;
+            case 4:
+                title = "Do"
+                content = "Até o final do jogo, toda vez que falar um palavrão, tire uma peça de roupa"
+                drink = 3
+                
+                break;
+            case 5:
+                title = "Do"
+                content = "Beije a parte do corpo que você acha mais bonita de uma pessoa no jogo"
+                drink = 3
+                
+                break;
+            case 6:
+                title = "Do"
+                content = "Beije a pessoa na roda que você gostaria de beijar"
+                drink = 3
+                
+                break;
+            case 7:
+                title = "Do"
+                content = "Beije todas as pessoas solteiras da roda"
+                drink = 3
+                
+                break;
+            case 8:
+                title = "Do"
+                content = "Conte um segredo para a pessoa a sua esquerda (só ela pode saber)"
+                drink = 2
+                
+                break;
+            case 9:
+                title = "Do"
+                content = "Deixe que a pessoa a sua esquerda te dê um tapa na cara"
+                drink = 1
+                
+                break;
+            case 10:
+                title = "Do"
+                content = "Deixe uma pessoa do grupo bater na sua bunda o mais forte possivel"
+                drink = 3
+                
+                break;
+            case 11:
+                title = "Do"
+                content = "Descreva sua roupa íntima"
+                drink = 1
+                
+                break;
+            case 12:
+                title = "Do"
+                content = "Diga uma verdade e uma mentira sobre você e deixe que adivinhem qual é qual. Se acertarem você bebe, se errarem eles bebem"
+                drink = 2
+                
+                break;
+            case 13:
+                title = "Do"
+                content = "Entre no tinder e marque um encontro com a primeira pessoa que der match"
+                drink = 1
+                
+                break;
+            case 14:
+                title = "Do"
+                content = "Fique apenas de roupa íntima"
+                drink = 3
+                
+                break;
+            case 15:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao1.png"
+                drink = 3
+                
+                break;
+            case 16:
+                title = "Do"
+                content = "Ligue para alguém que conhece e comece a pedir desculpas sem dizer o motivo"
+                drink = 2
+                
+                break;
+            case 17:
+                title = "Do"
+                content = "Ligue para um amigo e diga que está grávida ou que vai ser pai"
+                drink = 2
+                
+                break;
+            case 18:
+                title = "Do"
+                content = "Mande um áudio gemendo para a pessoa que o grupo escolher"
+                drink = 3
+                
+                break;
+            case 19:
+                title = "Do"
+                content = "Por 5 minutos você tem que fazer tudo o que a pessoa a sua esquerda mandar"
+                drink = 3
+                
+                break;
+            case 20:
+                title = "Do"
+                content = "Poste um stories com uma caixa de perguntas escrito 'Me recomendem um pornô'"
+                drink = 3
+                
+                break;
+            case 21:
+                title = "Do"
+                content = "Tire 4 peças de roupa"
+                drink = 3
+                
+                break;
+            case 22:
+                title = "Do"
+                content = "Tire a camisa por 1 turno"
+                drink = 3
+                
+                break;
+            case 23:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao2.png"
+                drink = 3
+                
+                break;
+            case 24:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao3.png"
+                drink = 3
+                
+                break;
+            case 25:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao3.png"
+                drink = 3
+                
+                break;
+            case 26:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao4.png"
+                drink = 3
+                
+                break;
+            case 27:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao5.png"
+                drink = 3
+                
+                break;
+            case 28:
+                title = "Do"
+                content = "Fique nessa posição com alguém da roda por 10 minutos"
+                var image = document.getElementById("imageid");
+                image.style.display = "inline";                
+                image.src = "../../src/images/tod/posiçao6.png"
+                drink = 3
+                
+                break;
+            //verdade init
+            case 29:
                 title = "Truth"
                 content = "das pessoas dessa sala, com quem você mais gostaria de ficar?"
                 drink = 3
                 break;
-            default:
+            case 30:
                 title = "Truth"
                 content = "Com quem foi o pior beijo da sua vida e como foi?"
                 drink = 1
+                break;
+            case 31:
+                title = "Truth"
+                content = "Já ficou com alguém que ninguém sabe? se sim, quem?"
+                drink = 3
+                break;
+            case 32:
+                title = "Truth"
+                content = "Descreva com detalhes a sua primeira vez"
+                drink = 2
+                break;
+            case 33:
+                title = "Truth"
+                content = "Com quantas pessoas já ficou/transou na vida?"
+                drink = 1
+                break;
+            case 34:
+                title = "Truth"
+                content = "Descreva o atual estado dos seus pelos pubianos"
+                drink = 1
+                break;
+            case 35:
+                title = "Truth"
+                content = "Já fez sexo anal? Se sim como foi?"
+                drink = 2
+                break;
+            case 36:
+                title = "Truth"
+                content = "já ficou com algum amigo dessa roda?"
+                drink = 2
+                break;
+            case 37:
+                title = "Truth"
+                content = "Já fez teste de DST? Se sim, qual foi o resultado?"
+                drink = 2
+                break;
+            case 38:
+                title = "Truth"
+                content = "Já fez menage?"
+                drink = 1
+                break;
+            case 39:
+                title = "Truth"
+                content = "Já ficou com algum parente?"
+                drink = 2
+                break;
+            case 40:
+                title = "Truth"
+                content = "Já ficou com alguém sabendo que essa pessoa era comprometida?"
+                drink = 1
+                break;
+            case 41:
+                title = "Truth"
+                content = "Já ficou com ex de amigo(a)?"
+                drink = 2
+                break;
+            case 42:
+                title = "Truth"
+                content = "Já pagou ou recebeu dinheiro por sexo?"
+                drink = 2
+                break;
+            case 43:
+                title = "Truth"
+                content = "Já foi a fim de alguém nesta sala?"
+                drink = 3
+                break;
+            case 44:
+                title = "Truth"
+                content = "Já gravou uma sex tape?"
+                drink = 3
+                break;
+            case 45:
+                title = "Truth"
+                content = "Já mandou o mesmo nude pra mais de uma pessoa?"
+                drink = 2
+                break;
+            case 46:
+                title = "Truth"
+                content = "Já se masturbou pensando em alguem da roda?Se sim, quem?"
+                drink = 3
+                break;
+            case 47:
+                title = "Truth"
+                content = "Todos respondem: Acham a pessoa que tirou a carta atraente?"
+                drink = 2
+                break;
+            case 48:
+                title = "Truth"
+                content = "Já transou em banheiro de festa?"
+                drink = 1
+                break;
+            case 49:
+                title = "Truth"
+                content = "Qual a diferença de idade da pessoa mais velha e mais nova que já ficou?"
+                drink = 1
+                break;
+            case 50:
+                title = "Truth"
+                content = "Qual o lugar mais estranho que você já fez sexo?"
+                drink = 1
+                break;
+            case 51:
+                title = "Truth"
+                content = "Qual o seu fetiche mais estranho?"
+                drink = 2
+                break;
+            case 52:
+                title = "Truth"
+                content = "Quem foi a última pessoa que você ficou?"
+                drink = 1
+                break;
+            case 53:
+                title = "Truth"
+                content = "Qual sua posição sexual preferida?"
+                drink = 1
+                break;
+            case 54:
+                title = "Truth"
+                content = "Quem da roda você acha que transou com mais pessoas?"
+                drink = 1
+                break;
+            case 55:
+                title = "Truth"
+                content = "Quem você acha que fez mais sexo na vida, você ou seus pais?"
+                drink = 1
+                break;
+            case 56:
+                title = "Truth"
+                content = "Você é ativo, passivo ou versátil?"
+                drink = 1
+                break;
+            case 57:
+                title = "Truth"
+                content = "Já foi contactado por um ex por 'razões de saúde'?"
+                drink = 2
+                break;
+            case 58:
+                title = "Truth"
+                content = "Com quantos anos perdeu a virgindade?"
+                drink = 1
+                break;
+            case 59:
+                title = "Truth"
+                content = "Qual foi o maior número de vezes que você já transou em um dia?"
+                drink = 1
+                break;
+            default:
+                title = "Truth"
+                content = "Já transou com mais de uma pessoa no mesmo dia?"
+                drink = 2
                 break;
         }
 
@@ -221,8 +627,7 @@
         } else{
             document.getElementById("title1").style.color = "#00C2CB";
         }
-            
-        
+        //document.getElementById("number").innerHTML = randtitle;
         document.getElementById("card1").style.display = "block";
         document.getElementById("title1").innerHTML = title;
         document.getElementById("or-title").innerHTML = "or";
@@ -232,4 +637,17 @@
         
         
     });
+</script>
+
+<script>
+
+</script>
+
+<script>
+    //var input = document.getElementById("inputexcel");
+    //input.addEventListener('change',function(){
+      //  readxlsxFile(input.files[0]).then(function(data){
+        //    console.log(data);
+        //})
+    //})
 </script>
