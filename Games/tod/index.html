@@ -1,0 +1,185 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/css/style.css">
+    <link rel="stylesheet" href="../../dist/css/style.css">
+    <script src="https://kit.fontawesome.com/76b15f09c3.js" crossorigin="anonymous"></script>
+</head>
+<style>
+
+    #or-title{
+       color: blueviolet; 
+    }
+    #drink-title{
+       color: darkcyan; 
+       text-decoration:none;
+  font-size:200%;
+  text-shadow:
+    0 0 7px white,
+    0 0 10px darkcyan,
+    0 0 21px darkcyan,
+    0 0 42px darkcyan,
+    0 0 82px darkcyan,
+    0 0 92px darkcyan;
+    }
+   
+    #content{
+       color: pink; 
+    }
+    #or{
+       color: blueviolet; 
+    }
+    #drink1{
+       color: white; 
+    }
+    .card{
+  background-color:#303030;
+  border: solid black;
+  border-radius: 10px;
+  text-align:center;
+  padding:20px;
+  margin: 0 30% 0 30%;
+  box-shadow:0 20px 30px rgba(0,0,0,0.2);
+  display: none;
+}
+.imagescup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-content: center;
+}
+.imagescup img{
+    width: 10%;
+}
+
+</style>
+<div>
+        <section class="hero">
+            <div class="container" style="text-align-last: center;">
+                <div >
+                    <div >
+                        <h1 class="hero-title mt-0">Truth Or Drink</h1>
+                        
+                        <div>
+                          <div class="col-lg-12" >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero vitae esse facilis nostrum omnis quibusdam officiis, voluptatibus est earum quam provident eos veritatis, tenetur odit id excepturi distinctio minima quasi?</p>
+                           
+                            <div>
+                                <p>filtro</p>
+                            </div>
+                            <div>
+                                <button id="criar">gerar</button>
+                            </div>
+                            <div id="card1" class="card">
+                                <div class="card-header">
+                                    <div id="title1"></div>
+                                    <div id="or-title"></div>
+                                    <div id="drink-title"></div>
+                                </div>
+                                
+                            <div id="content"></div>
+                            <div class="or"></div>
+                            <div class="imagescup" >
+                                <img style="visibility: hidden;" src="../../src/images/cup.png" id="drink1"/>
+                                <img style="visibility: hidden;" src="../../src/images/cup.png" id="drink2"/>
+                                <img style="visibility: hidden;" src="../../src/images/cup.png" id="drink3"/>
+                            
+                            </div>
+                            
+                                
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>  
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-inner">
+                <ul class="footer-social-links list-reset">
+                    <li>
+                        <a href="https://www.linkedin.com/in/clara-martins-39a007143/">
+                            <span class="screen-reader-text">Linkedin</span>
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/cmcm11320">
+                            <span class="screen-reader-text">Github</span>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="footer-copyright" style="text-align: center;">&copy; 2021, <a
+                    href="https://www.linkedin.com/in/clara-martins-39a007143/">Martins Dev</a></div>
+        </div>
+        <div style="visibility: hidden;">Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+</div>
+
+<script>
+    document.querySelector('#criar').addEventListener('click', function () {
+        var randtitle = Math.floor(Math.random() * 10);
+        var title
+        var content
+        var drink
+
+        switch(randtitle){
+            case 0:
+                title = "Do"
+                content = "Vá ao banheiro, tire uma peça intima e passe o jogo inteiro com ela nas mãos"
+                drink = 3
+                break;
+            case 1:
+                title = "Do"
+                content = "Você faz muito barulho durante o sexo? Descreva os barulhos que você faz"
+                drink = 2
+                
+                break;
+            case 2:
+                title = "Truth"
+                content = "das pessoas dessa sala, com quem você mais gostaria de ficar?"
+                drink = 3
+                break;
+            default:
+                title = "Truth"
+                content = "Com quem foi o pior beijo da sua vida e como foi?"
+                drink = 1
+                break;
+        }
+
+        
+        if(drink==1){
+            document.getElementById("drink1").style.visibility = "visible";
+            document.getElementById("drink2").style.visibility = "hidden";
+            document.getElementById("drink3").style.visibility = "hidden";
+        }
+        else if(drink==2){
+            document.getElementById("drink1").style.visibility = "visible";
+            document.getElementById("drink2").style.visibility = "visible";
+            document.getElementById("drink3").style.visibility = "hidden";
+        }
+        else{
+            document.getElementById("drink1").style.visibility = "visible";
+            document.getElementById("drink2").style.visibility = "visible";
+            document.getElementById("drink3").style.visibility = "visible";
+        }
+
+        if(title=="Do"){
+            document.getElementById("title1").style.color = "red";
+        } else{
+            document.getElementById("title1").style.color = "cyan";
+        }
+            
+        
+        document.getElementById("card1").style.display = "block";
+        document.getElementById("title1").innerHTML = title;
+        document.getElementById("or-title").innerHTML = "or";
+        document.getElementById("drink-title").innerHTML = "Drink";
+        document.getElementById("content").innerHTML = content;
+        document.getElementById("or").innerHTML = "ou";
+        
+    });
+</script>
