@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="styleteste.css"> 
+
+<code class="code-container" content="// Jane 💜">
+  <div class="glow-container">
+    <div class="augs" data-augmented-ui></div>
+  </div>
+  <section class="augs bg" data-augmented-ui>
+    <button class="dots" onclick="changeMode()" title="change mode"></button>
+    <input value="propjockey.io">
+    <div class="code highcontrast-dark">
+      <textarea style="background-color:transparent" id="code">
+@keyframes cast-bit-to-space-toggle {
+  to { --cbtst-space-toggle: ; }
+}
+
+@property --cbtst-space-toggle {
+  syntax: "*";
+  initial-value: initial;
+  inherits: false;
+}
+
+:where(.cbtst) {
+  --cbtst-animation: cast-bit-to-space-toggle
+    1ms linear both var(--cbtst-bit, 0);
+  animation: var(--cbtst-animation);
+}
+
+/* usage */
+.my-el.cbtst {
+  --cbtst-bit: 1; /* provide input value of 0 or 1 */
+  /* var(--cbtst-space-toggle) is the output */
+}
+      </textarea>
+    </div>
+  </section>
+  <script>
+    let mode = "css"
+const editor = CodeMirror.fromTextArea(code, {
+  lineNumbers: true,
+  styleActiveLine: true,
+  matchBrackets: true,
+  scrollbarStyle: "overlay",
+  Tab: "indentMore",
+  defaultTab: function(cm) {
+    if (cm.somethingSelected()) cm.indentSelection("add");
+    else cm.replaceSelection("  ", "end");
+  },
+  mode
+})
+editor.setOption("theme", "highcontrast-dark")
+const x = document.querySelector(".code")
+const ro = new ResizeObserver(entries => {
+  editor.setSize(x.offsetWidth, x.offsetHeight)
+})
+ro.observe(document.querySelector(".code-container"))
+
+const changeMode = () => {
+  mode = mode === "css" ? "javascript" : "css"
+  editor.setOption("mode", mode)
+}
+
+  </script>
+</div>
