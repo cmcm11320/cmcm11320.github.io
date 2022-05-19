@@ -61,11 +61,36 @@
         <div>
       </div>
 
-      <div>
-        <p>Clique aqui para enviar uma nova query</p>
+      <div style="padding-top: 2%;">
+        <button id="open">Clique aqui para enviar uma nova query</button>
       </div>
 
+      
+<div class="modal-container" id="modal_container">
+  <div class="modal">
+    <h1>Inserir query</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quo hic neque odio nisi, autem magnam. Labore commodi, eveniet saepe doloremque earum ullam officiis officia in natus rem quaerat excepturi sit blanditiis reprehenderit ea. Aut veniam dolorem tenetur rem voluptatum?</p>
+    <button id="close">
+      Fechar
+    </button>
+  </div>
+</div>
+
     <script src="main.js"></script>
+    <script>
+      const open = document.getElementById('open');
+      const close = document.getElementById('close');
+      const modal = document.getElementById('modal_container');
+      
+      open.addEventListener('click', () => {
+        modal.classList.add('show');
+      });
+      
+      close.addEventListener('click', () => {
+        modal.classList.remove('show');
+      });
+      </script>
+
  
     
 </body>
