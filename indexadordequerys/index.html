@@ -11,93 +11,49 @@
 </head>
 
 <body>
-    <div class="body-wrap">
-        <header class="site-header">
-           <div>
-               <h2>Index de Querys</h2>
-           </div>
-        </header>
 
-        <main>
-            <section>
-                <div>Sumário</div>
-            </section>
+    <div class="accordion-bral">
 
-            
-            <div class="modal" id="embreve_modal">
-                <a href="#fechar" title="Fechar" class="fechar">x</a>
-                <div style="width: 45%; background-color: transparent;top: 20%;" class="col-lg-12">
-                    <p>teste</p>
-                </div>
-                
-            </div>
+        <div>
+          <!-- accordion item 1 -- start -->
+          <input class="ac-input" id="ac-1" name="accordion-1" type="checkbox" checked/>
+          <label class="ac-label" for="ac-1">Tituto Query 1<i></i></label>
+          <div class="article ac-content">
+            <ul class="ac-list">
+              <li>titutlo descrição imagem botao
+              </li>
+            <ul>
+            <br>
+          </div>
+        </div>
+        <!-- accordion item 1 -- end -->
+      
+        <div>
+          <!-- accordion item 2 -- start -->
+          <input class="ac-input" id="ac-2" name="accordion-1" type="checkbox" checked/>
+          <label class="ac-label" for="ac-2">Tituto Query 1<i></i></label>
+          <div class="article ac-content">
+            <p>titulo imagem descriçao botao</p>
+            <div style="padding: 0 30px 30px 60px; width:100%;"><img src="http://placehold.it/350x150"></div>
+          </div>
+        </div>
+        <!-- accordion item 2 -- end -->
+      
+        <div>
+          <!-- accordion item 4 -- start -->
+          <input class="ac-input" id="ac-4" name="accordion-1" type="checkbox" />
+          <label class="ac-label" for="ac-4">slidjfds<i></i></label>
+          <div class="article ac-content">
+            <p>titulo imagem descriçao botao</p>
+            <div style="padding: 0 30px 30px 60px; width:100%;"><img src="http://placehold.it/350x150"></div>
+          </div>
+        </div>
+        <!-- accordion item 4 -- end -->
+      
+      </div>
 
-        </main>
-
-        <footer  class="site-footer">
-          
-          
-            <div class="container">
-                <div class="site-footer-inner">
-                    <ul class="footer-social-links list-reset">
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/clara-martins-39a007143/">
-                                <span class=" screen-reader-text">Linkedin</span>
-                                <i class=" social1 fab fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="https://github.com/cmcm11320">
-                                <span class="screen-reader-text">Github</span>
-                                <i class=" social1 fab fa-github"></i>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="footer-copyright" style="text-align: center;">&copy; 2021, <a target="_blank"
-                        href="https://www.linkedin.com/in/clara-martins-39a007143/">Martins Dev</a></div>
-            </div>
-            
-            <div style="color: transparent !important;">Ícones feitos por <a target="_blank" style="color: transparent !important;" href="https://www.freepik.com" title="Freepik">Freepik</a> from <a style="color: transparent !important;" href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
-          </footer>
-        
-    </div>
-
-    <script src="dist/js/main.min.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="src/owlcarousel/dist/owl.carousel.min.js"></script>
-    <script src="src/scripts/main.js"></script>
-    
-
-    
-    <script>
-        //caroussel projetos pessoais
-        $(document).ready(function () {
-            $(".owl-carousel2").owlCarousel({
-                loop: true,
-                center:true,
-                items:3,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout:2000,
-            autoplayHoverPause: true,
-            responsiveClass:true,
-            responsive: {
-                0:{
-                    items: 1,
-                    nav: false
-                },
-                600:{
-                    items: 2,
-                    nav: false
-                },
-                
-                
-            }
-            });
-        });
-    </script>   
+    <script src="main.js"></script>
+ 
     
 </body>
 
