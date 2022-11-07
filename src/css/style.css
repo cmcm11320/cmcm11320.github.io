@@ -51,7 +51,7 @@
     font-size: 16px;
     color: #8d0000;
   }
-  
+
 #botao{
     background-color:#5DC3D0;
 }
@@ -100,6 +100,7 @@ html {
 
   .owl-carousel .owl-stage-outer{
       overflow: visible !important;
+      z-index: 0 !important;
   }
 
 @media only screen and (max-width: 768px){
@@ -707,3 +708,18 @@ canvas {
   max-width: 20vh;
   z-index: -1;
 }
+.w3-sidebar {
+  width: 10%;
+  text-align: center;
+  position: fixed !important;
+  z-index: 1;
+  background-color: #131313;
+  height: 100%;
+  padding-top: 10%;
+}
+.w3-sidebar a{
+  text-decoration: none !important;
+}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+
