@@ -709,13 +709,14 @@ canvas {
   z-index: -1;
 }
 .w3-sidebar {
-  width: 10%;
+  width: 15%;
   text-align: center;
   position: fixed !important;
-  z-index: 1;
-  background-color: #131313;
+  z-index: 10;
+  background-color: #1313138c;
   height: 100%;
   padding-top: 10%;
+  left: 85%;
 }
 .w3-sidebar a{
   text-decoration: none !important;
